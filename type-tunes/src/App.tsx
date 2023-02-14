@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Album from './pages/Album';
+import Favorites from './pages/Favorites';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
+import ProfileEdit from './pages/ProfileEdit';
+import Search from './pages/Search';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Routes>
+        <Route path="/profile/edit" element={ <ProfileEdit /> } />
+        <Route path="/album/:id" element={ <Album /> } />
+        <Route path="/search" element={ <Search /> } />
+        <Route path="/favorites" element={ <Favorites /> } />
+        <Route path="/profile" element={ <Profile /> } />
+        <Route path="/" element={ <Login /> } />
+        <Route path="*" element={ <NotFound /> } />
+      </Routes>
+    );
+  }
 }
 
 export default App;
