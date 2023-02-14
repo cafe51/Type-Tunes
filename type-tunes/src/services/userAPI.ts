@@ -1,6 +1,6 @@
 import { IdefaultUser } from '../interfaces';
 const USER_KEY = 'user';
-const TIMEOUT = 1500;
+const TIMEOUT = 0;
 const SUCCESS_STATUS = 'OK';
 
 const readUser = () => JSON.parse(localStorage.getItem(USER_KEY) as string);
@@ -13,7 +13,7 @@ const saveUser = (user: IdefaultUser) => localStorage.setItem(USER_KEY, JSON.str
 // não se preocupe, estudaremos isso mais futuramente
 // --------------------------------------------------------------------
 
-const simulateRequest = (response: IdefaultUser | 'user' | 1500 | 'OK') => (callback: (response: IdefaultUser | 'user' | 1500 | 'OK') => void) => {
+const simulateRequest = (response: IdefaultUser | 'user' | number | 'OK') => (callback: (response: IdefaultUser | 'user' | number | 'OK') => void) => {
   setTimeout(() => {
     callback(response);
   }, TIMEOUT);
