@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-// import Loading from './Loading';
+import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 
 type insertNameEventType = {
@@ -62,7 +62,7 @@ class Login extends React.Component {
             >
               Entrar
             </button>
-            {loading === true ? <div>Carregando...</div> : ''}
+            {loading === true ? <Loading /> : ''}
             {redirect === true ? <Navigate to="/search" /> : ''}
           </label>
 
