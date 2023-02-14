@@ -11,9 +11,9 @@ export interface Iartist {
 
 export interface IdefaultUser {
   name: string,
-  email: string,
-  description: string,
-  image: string,
+  email?: string,
+  description?: string,
+  image?: string,
 }
 
 export interface Isong  {

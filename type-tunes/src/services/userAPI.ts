@@ -1,6 +1,6 @@
 import { IdefaultUser } from '../interfaces';
 const USER_KEY = 'user';
-const TIMEOUT = 1500;
+const TIMEOUT = 0;
 const SUCCESS_STATUS = 'OK';
 
 const readUser = () => JSON.parse(localStorage.getItem(USER_KEY) as string);
