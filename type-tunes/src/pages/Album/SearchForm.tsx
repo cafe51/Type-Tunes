@@ -1,9 +1,10 @@
 import React from 'react';
+import { InsertEventInterface } from '../../interfaces';
 
 type SearchFormProps = {
   artistName: string;
-  handleChange: any;
-  handleClick: any;
+  handleChange: (event: InsertEventInterface) => void;
+  handleClick: () => void;
   disabled: boolean;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Iartist } from '../interfaces';
+import { Iartist } from '../../interfaces';
 import AlbumCard from './AlbumCard';
 
 type AlbumCardsListProps = {

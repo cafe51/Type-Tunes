@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import Loading from '../components/Loading';
-import { createUser } from '../services/userAPI';
-import { InsertEventInterface } from '../interfaces';
+import Loading from '../../components/Loading';
+import { createUser } from '../../services/userAPI';
+import { InsertEventInterface } from '../../interfaces';
 
 class Login extends React.Component {
   state = {

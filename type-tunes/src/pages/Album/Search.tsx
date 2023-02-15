@@ -1,10 +1,10 @@
 import React from 'react';
-import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import Loading from '../components/Loading';
-import Header from '../components/Header';
-import SearchForm from '../components/SearchForm';
-import AlbumCardsList from '../components/AlbumCardsList';
-import { Iartist, InsertEventInterface} from '../interfaces';
+import searchAlbumsAPI from '../../services/searchAlbumsAPI';
+import Loading from '../../components/Loading';
+import Header from '../../components/Header';
+import SearchForm from './SearchForm';
+import AlbumCardsList from './AlbumCardsList';
+import { Iartist, InsertEventInterface} from '../../interfaces';
 
 type SearchState = {
   disabled: boolean;
@@ -72,7 +72,7 @@ class Search extends React.Component {
           : <div>
             <SearchForm
               artistName={ artistName }
-              handleChange={this.handleChange}
+              handleChange={ this.handleChange }
               handleClick= { this.handleClick }
               disabled = { disabled }
             />
