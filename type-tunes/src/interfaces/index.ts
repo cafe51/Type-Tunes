@@ -22,3 +22,12 @@ export interface Isong  {
   previewUrl: string,
   kind: string,
 }
+
+export interface InsertEventInterface {
+  target: {
+    name: string;
+    type: string;
+    checked: boolean;
+    value: string 
+  }
+}

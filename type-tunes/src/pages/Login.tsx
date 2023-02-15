@@ -2,25 +2,17 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
-
-type insertNameEventType = {
-  target: {
-    name: string;
-    type: string;
-    checked: boolean;
-    value: string 
-  }
-}
+import { InsertEventInterface } from '../interfaces';
 
 class Login extends React.Component {
   state = {
     name: '',
     disabled: true,
-    loading: false,
+    isLoading: false,
     redirect: false,
   };
 
-  handleChange = ({ target }: insertNameEventType ) => {
+  handleChange = ({ target }: InsertEventInterface ) => {
     const { name, type, checked } = target;
     const value = type === 'checkbox' ? checked : target.value;
 
@@ -32,15 +24,15 @@ class Login extends React.Component {
 
   handleClick = () => {
     const name = { name: this.state.name };
-    this.setState({ loading: true },
+    this.setState({ isLoading: true },
       async () => {
         await createUser(name);
-        this.setState({ loading: false, redirect: true });
+        this.setState({ isLoading: false, redirect: true });
       });
   };
 
   render() {
-    const { disabled, loading, redirect, name } = this.state;
+    const { disabled, isLoading, redirect, name } = this.state;
     return (
       <div data-testid="page-login">
         <form>
@@ -62,8 +54,8 @@ class Login extends React.Component {
             >
               Entrar
             </button>
-            {loading === true ? <Loading /> : ''}
-            {redirect === true ? <Navigate to="/search" /> : ''}
+            {isLoading ? <Loading /> : ''}
+            {redirect ? <Navigate to="/search" /> : ''}
           </label>
 
         </form>
