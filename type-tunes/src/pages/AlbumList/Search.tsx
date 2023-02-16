@@ -4,16 +4,8 @@ import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import SearchForm from './SearchForm';
 import AlbumCardsList from './AlbumCardsList';
-import { Iartist, InsertEventInterface} from '../../interfaces';
-
-type SearchState = {
-  disabled: boolean;
-  artistName: string;
-  searchBar: string;
-  isLoading: boolean;
-  searchResult: [] | Iartist[];
-  aviso: string;
-}
+import { InsertEventInterface} from '../../interfaces';
+import { SearchState } from '../../types';
 
 
 class Search extends React.Component {

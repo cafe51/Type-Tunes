@@ -1,11 +1,7 @@
 import React from 'react';
-import { Iartist } from '../../interfaces';
 import AlbumCard from './AlbumCard';
+import { AlbumCardsListProps } from '../../types';
 
-type AlbumCardsListProps = {
-  searchResult: [] | Iartist[];
-  aviso: string;
-}
 export default class AlbumCardsList extends React.Component<AlbumCardsListProps> {
 
   render() {

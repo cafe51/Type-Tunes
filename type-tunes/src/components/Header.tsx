@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../images/logo.png';
-import { IdefaultUser } from '../interfaces';
-
-type headerStateType = {
-  user: IdefaultUser | null;
-  loading: boolean;
-}
+import { headerStateType } from '../types';
 
 class Header extends React.Component {
   state: headerStateType = {

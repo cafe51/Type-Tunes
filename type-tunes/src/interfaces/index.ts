@@ -17,14 +17,15 @@ export interface IdefaultUser {
 }
 
 export interface Isong  {
-  trackId: number,
+  trackId: string,
   trackName: string,
   previewUrl: string,
-  kind: string,
+  // kind: string,
 }
 
 export interface InsertEventInterface {
   target: {
+    id: string;
     name: string;
     type: string;
     checked: boolean;

@@ -1,12 +1,6 @@
 import React from 'react';
-import { InsertEventInterface } from '../../interfaces';
+import { SearchFormProps } from '../../types';
 
-type SearchFormProps = {
-  artistName: string;
-  handleChange: (event: InsertEventInterface) => void;
-  handleClick: () => void;
-  disabled: boolean;
-}
 
 export default class SearchForm extends React.Component<SearchFormProps> {
 

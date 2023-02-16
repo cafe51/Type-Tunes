@@ -1,5 +1,5 @@
 import Album from './Album/Album';
-import Search from './Album/Search';
+import Search from './AlbumList/Search';
 import Favorites from './Favorites/Favorites';
 import Login from './Login/Login';
 import NotFound from './NotFound/NotFound';

@@ -3,9 +3,11 @@ import { Navigate } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { createUser } from '../../services/userAPI';
 import { InsertEventInterface } from '../../interfaces';
+import { LoginStateType } from '../../types';
+
 
 class Login extends React.Component {
-  state = {
+  state: LoginStateType = {
     name: '',
     disabled: true,
     isLoading: false,
