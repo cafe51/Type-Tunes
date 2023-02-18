@@ -42,9 +42,9 @@ class MusicCard extends React.Component<MusicCardProps> {
       try {
         this.setState({ currentSongId: song.trackId });
         await removeSong(song);
-        // const newFavorites = favoritas.slice();
-        // newFavorites.splice(favoritas.indexOf(song), 1);
-        this.setState({ favoritas: await getFavoriteSongs(), currentSongId: null });
+        this.setState({ favoritas: await getFavoriteSongs(), currentSongId: null }, () => {
+          this.props.changeFavorites ? this.props.changeFavorites(this.state.favoritas) : '';
+        });
       } catch(error){
         console.log(error);
         this.setState({ currentSongId: null });
@@ -66,12 +66,12 @@ class MusicCard extends React.Component<MusicCardProps> {
     const { listaDeMusicas } = this.props;
     return (
       <div>
-        <div>
+        <div style={ { display: 'flex', flexFlow: 'wrap', margin: '5px', padding: '5px', border: '1px solid black', width: '1000px' } } >
           { listaDeMusicas.map(({ trackId, trackName, previewUrl
           }) => {
             const isLoading = (currentSongId === trackId || loading);
             const card = (
-              <div key={ trackId }>
+              <div key={ trackId } style={ { display: 'flex', flexFlow: 'wrap', margin: '5px', padding: '5px', border: '1px solid black', width: '400px' } }>
                 <AudioComponent trackName={trackName} previewUrl={previewUrl} />
                 { isLoading
                   ? <div><Loading /></div>

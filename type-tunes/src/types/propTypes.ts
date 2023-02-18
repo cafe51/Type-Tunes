@@ -7,6 +7,7 @@ export type AudioComponentProps = {
 
 export type MusicCardProps = {
   listaDeMusicas: Isong[];
+  changeFavorites?: (favoriteList: Isong[]) => void;
 }
 
 export type AlbumCardsListProps = {
