@@ -26,3 +26,10 @@ export type SearchState = {
   searchResult: [] | Iartist[];
   aviso: string;
 }
+
+export type ProfileEditState = {
+  loading: boolean,
+  disabledButton: boolean,
+  user: IdefaultUser,
+  redirect: false,
+}

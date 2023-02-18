@@ -10,7 +10,8 @@ import {
   MusicCardState,
   headerStateType,
   SearchState,
-  LoginStateType
+  LoginStateType,
+  ProfileEditState
 } from './stateTypes';
 
 
@@ -23,4 +24,5 @@ export {
   type SearchState,
   type SearchFormProps,
   type LoginStateType, 
+  type ProfileEditState,
 };
