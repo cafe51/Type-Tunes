@@ -28,7 +28,7 @@ export default class AlbumCard extends React.Component<AlbumCardProps> {
         >
           <div>
             <h3>{collectionName}</h3>
-            <img alt={ collectionName } src={ artworkUrl100 } />
+            <img alt={ collectionName } src={ artworkUrl100.replace('100x100bb', '316x316bf') } />
             <h4>{ collectionPrice }</h4>
           </div>
         </Link>
