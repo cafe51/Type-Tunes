@@ -7,7 +7,7 @@ export type LoginStateType = {
   redirect: boolean,
 }
 
-export type MusicCardState = {
+export type MusicComponentState = {
   loading: boolean,
   favoritas: Isong[],
   currentSongId: string | null,
