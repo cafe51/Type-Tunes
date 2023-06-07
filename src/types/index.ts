@@ -1,13 +1,13 @@
 import {
-  AudioComponentProps,
   MusicCardProps,
+  MusicComponentProps,
   AlbumCardsListProps,
   SearchFormProps,
 
 } from './propTypes';
 
 import {
-  MusicCardState,
+  MusicComponentState,
   headerStateType,
   SearchState,
   LoginStateType,
@@ -16,9 +16,9 @@ import {
 
 
 export {
-  type AudioComponentProps,
   type MusicCardProps,
-  type MusicCardState,
+  type MusicComponentProps,
+  type MusicComponentState,
   type headerStateType,
   type AlbumCardsListProps,
   type SearchState,

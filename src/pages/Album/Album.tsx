@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter, WithRouterProps} from '../../utils/withRouter';
 import Header from '../../components/Header';
-import MusicCard from './MusicCard';
+import MusicCard from './MusicComponent';
 import Loading from '../../components/Loading';
 import getMusics from '../../services/musicsAPI';
 import { Isong, Iartist } from '../../interfaces';

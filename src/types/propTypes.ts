@@ -1,11 +1,11 @@
 import { Isong, Iartist, InsertEventInterface } from '../interfaces';
 
-export type AudioComponentProps = {
+export type MusicCardProps = {
   trackName: string;
   previewUrl: string;
 }
 
-export type MusicCardProps = {
+export type MusicComponentProps = {
   listaDeMusicas: Isong[];
   changeFavorites?: (favoriteList: Isong[]) => void;
 }
