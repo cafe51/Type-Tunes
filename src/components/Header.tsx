@@ -1,20 +1,59 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../images/logo.png';
 import { headerStateType } from '../types';
+// import { IdefaultUser } from '../interfaces';
 
-class Header extends React.Component {
-  state: headerStateType = {
+// Aqui criamos os componentes estilizados
+const HeaderWrapper = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+`;
+
+const HeaderLogo = styled.img`
+  width: 100px;
+`;
+
+const UserName = styled.div`
+  cursor: pointer;
+`;
+
+const NavMenu = styled.nav`
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 200px;
+  height: 100%;
+  background: #f0f0f0;
+`;
+
+const NavLink = styled(Link)`
+  display: block;
+  padding: 10px;
+`;
+
+interface HeaderState extends headerStateType {
+  isMenuOpen: boolean;
+}
+
+class Header extends React.Component<{}, HeaderState> {
+  state: HeaderState = {
     user: null,
     loading: false,
+    isMenuOpen: false,
   };
 
   componentDidMount() {
     this.setState({ loading: true },
       async () => {
-        const user = await getUser();
+        const user: any = await getUser();
         this.setState({
           loading: false,
           user,
@@ -22,42 +61,41 @@ class Header extends React.Component {
       });
   }
 
+  handleUserNameClick = () => {
+    this.setState(prevState => ({
+      isMenuOpen: !prevState.isMenuOpen
+    }));
+  };
+
   render() {
-    const { user, loading } = this.state;
+
+    const { user, loading, isMenuOpen } = this.state;
 
     const saudação = (
       loading
         ? <Loading />
         : (
-          <div data-testid="header-user-name">
+          <UserName data-testid="header-user-name" onClick={this.handleUserNameClick}>
             { user ? user.name : 'Usuário não encontrado' }
-          </div>
+          </UserName>
         ));
 
     return (
-      <header data-testid="header-component">
-        <div>
-          <img alt="logo" src={ logo } style={ { width: '100px' } }/>
-        </div>
+      <HeaderWrapper data-testid="header-component">
         {saudação}
-        <nav>
-          <Link data-testid="link-to-search" to="/search">
-            <div>
-              Search
-            </div>
-          </Link>
-          <Link data-testid="link-to-favorites" to="/favorites">
-            <div>
-              Favoritas
-            </div>
-          </Link>
-          <Link data-testid="link-to-profile" to="/profile">
-            <div>
-              Perfil
-            </div>
-          </Link>
-        </nav>
-      </header>
+        <HeaderLogo alt="logo" src={logo} />
+        <NavLink data-testid="link-to-search" to="/search">
+          Search
+        </NavLink>
+        <NavMenu style={{ display: isMenuOpen ? 'block' : 'none' }}>
+          <NavLink data-testid="link-to-favorites" to="/favorites">
+            Favoritas
+          </NavLink>
+          <NavLink data-testid="link-to-profile" to="/profile">
+            Perfil
+          </NavLink>
+        </NavMenu>
+      </HeaderWrapper>
     );
   }
 }
