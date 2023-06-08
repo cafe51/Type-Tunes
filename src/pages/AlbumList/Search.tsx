@@ -1,82 +1,68 @@
+// Search.js
 import React from 'react';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import Loading from '../../components/Loading';
 import Header from '../../components/Header';
-import SearchForm from './SearchForm';
-import AlbumCardsList from './AlbumCardsList';
+import SearchSection from './SearchSection';
 import { InsertEventInterface} from '../../interfaces';
 import { SearchState } from '../../types';
 
-
 class Search extends React.Component {
   state: SearchState = {
-    disabled: true,
-    artistName: '',
-    searchBar: '',
+    isFormDisabled: true,
+    artistNameInput: '',
+    searchedArtist: '',
     isLoading: false,
     searchResult: [],
-    aviso: 'Pesquise uma banda ou artista',
+    notice: 'Pesquise uma banda ou artista',
   };
 
-  handleChange = ({ target }: InsertEventInterface ) => {
+  handleInputChange = ({ target }: InsertEventInterface ) => {
     const { name, type, checked } = target;
     const value = type === 'checkbox' ? checked : target.value;
 
     this.setState({
       [name]: value,
-      disabled: !(target.value.length >= 2)
+      isFormDisabled: !(target.value.length >= 2)
     });
   };
 
-
-  handleClick = async () => {
-    const { artistName } = this.state;
-    this.setState({ isLoading: true, searchBar: artistName },
+  fetchArtistAlbums = async () => {
+    const { artistNameInput } = this.state;
+    this.setState({ isLoading: true, searchedArtist: artistNameInput },
       async () => {
-        const artista = await searchAlbumsAPI(artistName);
+        const artistAlbums = await searchAlbumsAPI(artistNameInput);
         this.setState({
           isLoading: false,
-          artistName: '',
-          searchResult: artista,
-          disabled: true,
-          aviso: 'Nenhum álbum foi encontrado',
+          artistNameInput: '',
+          searchResult: artistAlbums,
+          isFormDisabled: true,
+          notice: 'Nenhum álbum foi encontrado',
         });
       });
   };
 
   render() {
-    const { artistName, disabled, searchBar, searchResult, isLoading, aviso } = this.state;
-
+    const { artistNameInput, isFormDisabled, searchedArtist, searchResult, isLoading } = this.state;
+  
     return (
       <div data-testid="page-search">
         <Header />
-        { isLoading
-          ? ''
-          : (
-            <h1>
-              Resultado de álbuns de:
-              {' '}
-              { searchBar }
-            </h1>
-          )}
-        { isLoading
-          ? <Loading />
-          : <div>
-            <SearchForm
-              artistName={ artistName }
-              handleChange={ this.handleChange }
-              handleClick= { this.handleClick }
-              disabled = { disabled }
-            />
-            <AlbumCardsList
-              searchResult={ searchResult }
-              aviso={aviso}
-            />
-          </div>
+        { isLoading 
+          ? <Loading /> 
+          : <SearchSection
+            artistNameInput={artistNameInput}
+            isFormDisabled={isFormDisabled}
+            handleInputChange={this.handleInputChange}
+            fetchArtistAlbums={this.fetchArtistAlbums}
+            searchResult={searchResult}
+            searchedArtist={searchedArtist}
+          /> 
         }
       </div>
     );
   }
+  
 }
 
 export default Search;

@@ -3,6 +3,8 @@ import {
   MusicComponentProps,
   AlbumCardsListProps,
   SearchFormProps,
+  SearchResultProps,
+  SearchSectionProps
 
 } from './propTypes';
 
@@ -16,6 +18,8 @@ import {
 
 
 export {
+  type SearchSectionProps,
+  type SearchResultProps,
   type MusicCardProps,
   type MusicComponentProps,
   type MusicComponentState,

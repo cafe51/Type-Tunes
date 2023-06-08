@@ -12,12 +12,26 @@ export type MusicComponentProps = {
 
 export type AlbumCardsListProps = {
   searchResult: [] | Iartist[];
-  aviso: string;
+  notice: string;
 }
 
 export type SearchFormProps = {
-  artistName: string;
+  artistNameInput: string;
   handleChange: (event: InsertEventInterface) => void;
   handleClick: () => void;
   disabled: boolean;
+}
+
+export type SearchResultProps = {
+  searchResult: [] | Iartist[];
+  searchedArtist: Iartist  | string
+}
+
+export type SearchSectionProps = {
+  artistNameInput: string;
+  isFormDisabled: boolean;
+  handleInputChange: (event: InsertEventInterface) => void;
+  fetchArtistAlbums: () => void
+  searchResult: [] | Iartist[];
+  searchedArtist: Iartist | string
 }

@@ -5,9 +5,10 @@ import { AlbumCardsListProps } from '../../types';
 export default class AlbumCardsList extends React.Component<AlbumCardsListProps> {
 
   render() {
-    const { searchResult, aviso }  = this.props;
+    const { searchResult, notice }  = this.props;
     return (
       <div>
+        <h2>{ notice }</h2>
         { searchResult.length > 0
           ? (
             <div>
@@ -16,7 +17,7 @@ export default class AlbumCardsList extends React.Component<AlbumCardsListProps>
               )}
             </div>
           )
-          : <h2>{ aviso }</h2> }
+          : '' }
       </div>
     );
   }

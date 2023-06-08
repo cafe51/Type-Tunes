@@ -36,7 +36,7 @@ describe('14 - Crie o formulário de edição de perfil', () => {
         { timeout: 3000 }
       );
       const editInputImage: HTMLInputElement = screen.getByTestId('edit-input-image');
-      console.log(editInputImage.value);
+
       expect(screen.getByTestId('edit-input-name')).toHaveValue('User Test');
       expect(screen.getByTestId('edit-input-email')).toHaveValue('email@test.com');
       expect(screen.getByTestId('edit-input-description')).toHaveValue('Lorem ipsum');

@@ -19,12 +19,12 @@ export type headerStateType = {
 }
 
 export type SearchState = {
-  disabled: boolean;
-  artistName: string;
-  searchBar: string;
-  isLoading: boolean;
+  isFormDisabled: boolean,
+  artistNameInput: string,
+  searchedArtist: string,
+  isLoading: boolean,
   searchResult: [] | Iartist[];
-  aviso: string;
+  notice: string,
 }
 
 export type ProfileEditState = {
