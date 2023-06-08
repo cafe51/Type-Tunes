@@ -5,6 +5,15 @@ import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import { IdefaultUser } from '../../interfaces';
 import { ProfileEditState } from '../../types';
+import styled from 'styled-components';
+
+const ProfileEditWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  width: 100%;
+  word-wrap: break-word;
+`;
 
 class ProfileEdit extends React.Component {
   state: ProfileEditState = {
@@ -68,6 +77,7 @@ class ProfileEdit extends React.Component {
       redirect
     } = this.state;
     const formulario = loading ? <Loading /> : (
+
       <form>
         <div>
           <h3>Foto</h3>
@@ -141,12 +151,14 @@ class ProfileEdit extends React.Component {
       </form>
     );
     return (
-      <div data-testid="page-profile-edit">
+      <section>
         <Header />
+        <ProfileEditWrapper data-testid="page-profile-edit">
         ProfileEdit
-        {formulario}
-        { redirect ? <Navigate to="/profile" /> : '' }
-      </div>
+          {formulario}
+          { redirect ? <Navigate to="/profile" /> : '' }
+        </ProfileEditWrapper>
+      </section>
     );
   }
 }

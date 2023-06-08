@@ -11,6 +11,8 @@ interface PositionProps {
   position: 'start' | 'center' | 'end';
 }
 
+
+
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
@@ -59,6 +61,28 @@ const Hamburger = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+`;
+
+
+const NavLinksDesktop = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 20px;
+  }
+`;
+
+const NavMenuMobile = styled(NavMenu)`
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+const HamburgerMobile = styled(Hamburger)`
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 interface HeaderState extends headerStateType {
@@ -111,21 +135,32 @@ class Header extends React.Component<any, HeaderState> {
           <HeaderLogo alt="logo" src={logo} />
         </HeaderSection>
         <HeaderSection position='end'>
-          <Hamburger onClick={this.handleMenuClick}>
+          <HamburgerMobile onClick={this.handleMenuClick}>
             {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
-          </Hamburger>
-        </HeaderSection>
-        <NavMenu style={{ display: isMenuOpen ? 'block' : 'none' }}>
-          <NavLink data-testid="link-to-search" to="/search">
+          </HamburgerMobile>
+          <NavLinksDesktop>
+            <NavLink data-testid="link-to-search" to="/search">
             Search
-          </NavLink>
-          <NavLink data-testid="link-to-favorites" to="/favorites">
+            </NavLink>
+            <NavLink data-testid="link-to-favorites" to="/favorites">
             Favoritas
-          </NavLink>
-          <NavLink data-testid="link-to-profile" to="/profile">
+            </NavLink>
+            <NavLink data-testid="link-to-profile" to="/profile">
             Perfil
+            </NavLink>
+          </NavLinksDesktop>
+        </HeaderSection>
+        <NavMenuMobile style={{ display: isMenuOpen ? 'block' : 'none' }}>
+          <NavLink to="/search">
+          Search
           </NavLink>
-        </NavMenu>
+          <NavLink to="/favorites">
+          Favoritas
+          </NavLink>
+          <NavLink to="/profile">
+          Perfil
+          </NavLink>
+        </NavMenuMobile>
       </HeaderWrapper>
     );
   }

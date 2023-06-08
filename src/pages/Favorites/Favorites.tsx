@@ -4,6 +4,13 @@ import Loading from '../../components/Loading';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import Header from '../../components/Header';
 import { Isong } from '../../interfaces';
+import styled from 'styled-components';
+
+const FavoritesWrapper = styled.div`
+  padding-top: 100px;
+  width: 99%;
+`;
+
 
 class Favorites extends React.Component {
   state = {
@@ -27,14 +34,16 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites">
         <Header />
-        Favorites
-        { loading
-          ? <Loading />
-          : <MusicCard
-            listaDeMusicas={ favorites }
-            changeFavorites = { this.changeFavorites }
-          />
-        }
+        <FavoritesWrapper>
+          Favorites
+          { loading
+            ? <Loading />
+            : <MusicCard
+              listaDeMusicas={ favorites }
+              changeFavorites = { this.changeFavorites }
+            />
+          }
+        </FavoritesWrapper>
       </div>
     );
   }

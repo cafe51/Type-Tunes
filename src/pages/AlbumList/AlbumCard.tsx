@@ -1,5 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Card = styled.div`
+  border: 1px solid black;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px black;
+
+  img {
+    border-radius: 10px;
+  }
+`;
+
 
 type AlbumCardProps = {
   albumData: { 
@@ -21,18 +34,18 @@ export default class AlbumCard extends React.Component<AlbumCardProps> {
     } = albumData;
 
     return (
-      <div key={ collectionId }>
+      <Card key={ collectionId }>
         <Link
           to={ `/album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
         >
           <div>
-            <h3>{collectionName}</h3>
             <img alt={ collectionName } src={ artworkUrl100.replace('100x100bb', '316x316bf') } />
+            <h3>{collectionName} </h3>
             <h4>{ collectionPrice }</h4>
           </div>
         </Link>
-      </div>
+      </Card>
     );
   }
 }

@@ -4,6 +4,17 @@ import MusicCard from './MusicCard';
 import { addSong, removeSong, getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import { Isong, InsertEventInterface } from '../../interfaces';
 import { MusicComponentProps, MusicComponentState } from '../../types';
+import styled from 'styled-components';
+
+const MusicCardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  border: 1px solid black;
+  width: 100%;
+  word-wrap: break-word;
+  background-color: yellow;
+`;
 
 class MusicComponent extends React.Component<MusicComponentProps> {
   state: MusicComponentState = {
@@ -66,12 +77,12 @@ class MusicComponent extends React.Component<MusicComponentProps> {
     const { listaDeMusicas } = this.props;
     return (
       <div>
-        <div style={ { display: 'flex', flexFlow: 'wrap', margin: '5px', padding: '5px', border: '1px solid black', width: '1000px' } } >
+        <div style={ { display: 'flex', flexFlow: 'wrap', border: '1px solid black', width: '100%', backgroundColor: 'green' } } >
           { listaDeMusicas.map(({ trackId, trackName, previewUrl
           }) => {
             const isLoading = (currentSongId === trackId || loading);
             const card = (
-              <div key={ trackId } style={ { display: 'flex', flexFlow: 'wrap', margin: '5px', padding: '5px', border: '1px solid black', width: '400px' } }>
+              <div key={ trackId } style={ { width: '100%' } }>
                 <MusicCard trackName={trackName} previewUrl={previewUrl} />
                 { isLoading
                   ? <div><Loading /></div>

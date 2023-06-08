@@ -5,6 +5,12 @@ import MusicCard from './MusicComponent';
 import Loading from '../../components/Loading';
 import getMusics from '../../services/musicsAPI';
 import { Isong, Iartist } from '../../interfaces';
+import styled from 'styled-components';
+
+const AlbumWrapper = styled.div`
+  padding-top: 100px;
+  width: 99%;
+`;
 
 
 type Props = WithRouterProps<{ id: string }>;
@@ -57,10 +63,12 @@ class Album extends React.Component<Props> {
   render() {
     const { musicas, loading } = this.state;
     return (
-      <div data-testid="page-album">
+      <section data-testid="page-album">
         <Header />
-        { loading ? <Loading /> : musicas}
-      </div>
+        <AlbumWrapper>
+          { loading ? <Loading /> : musicas}
+        </AlbumWrapper>
+      </section>
     );
   }
 }
