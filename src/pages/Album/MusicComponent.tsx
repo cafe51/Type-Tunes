@@ -6,12 +6,18 @@ import { Isong, InsertEventInterface } from '../../interfaces';
 import { MusicComponentProps, MusicComponentState } from '../../types';
 import styled from 'styled-components';
 
-const MusicCardWrapper = styled.div`
+const ListWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const MusicCardList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   padding: 5px;
   border: 1px solid black;
-  width: 100%;
+  width: 80%;
   word-wrap: break-word;
   background-color: yellow;
 `;
@@ -76,8 +82,10 @@ class MusicComponent extends React.Component<MusicComponentProps> {
     const { loading, currentSongId } = this.state;
     const { listaDeMusicas } = this.props;
     return (
-      <div>
-        <div style={ { display: 'flex', flexFlow: 'wrap', border: '1px solid black', width: '100%', backgroundColor: 'green' } } >
+      <ListWrapper>
+        <MusicCardList
+          // style={ { display: 'flex', flexFlow: 'wrap', border: '1px solid black', width: '100%', backgroundColor: 'green' } }
+        >
           { listaDeMusicas.map(({ trackId, trackName, previewUrl
           }) => {
             const isLoading = (currentSongId === trackId || loading);
@@ -101,9 +109,9 @@ class MusicComponent extends React.Component<MusicComponentProps> {
             );
             return card;
           })}
-        </div>
+        </MusicCardList>
         
-      </div>
+      </ListWrapper>
     );
   }
 }
