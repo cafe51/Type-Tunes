@@ -73,8 +73,7 @@ const NavMenu = styled.nav`
   right: 0;
   top: 60px;
   width: 200px;
-  height: 100%;
-  background: #f0f0f0;
+  background: pink;
 `;
 
 const NavLink = styled(Link)`
