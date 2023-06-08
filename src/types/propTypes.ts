@@ -23,8 +23,8 @@ export type SearchFormProps = {
 }
 
 export type SearchResultProps = {
-  searchResult: [] | Iartist[];
-  searchedArtist: Iartist  | string
+  searchedArtist: Iartist  | string;
+  displayedResult: [] | Iartist[];
 }
 
 export type SearchSectionProps = {
@@ -32,6 +32,6 @@ export type SearchSectionProps = {
   isFormDisabled: boolean;
   handleInputChange: (event: InsertEventInterface) => void;
   fetchArtistAlbums: () => void
-  searchResult: [] | Iartist[];
+  displayedResult: [] | Iartist[];
   searchedArtist: Iartist | string
 }

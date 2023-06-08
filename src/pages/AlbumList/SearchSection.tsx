@@ -2,9 +2,10 @@ import React from 'react';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import { SearchSectionProps } from '../../types';
+
 class SearchSection extends React.Component<SearchSectionProps> {
   render() {
-    const { artistNameInput, isFormDisabled, handleInputChange, fetchArtistAlbums, searchResult, searchedArtist } = this.props;
+    const { artistNameInput, isFormDisabled, handleInputChange, fetchArtistAlbums, displayedResult, searchedArtist } = this.props;
   
     return (
       <div>
@@ -15,7 +16,7 @@ class SearchSection extends React.Component<SearchSectionProps> {
           disabled={isFormDisabled}
         />
         <SearchResults
-          searchResult={searchResult}
+          displayedResult={displayedResult}
           searchedArtist={searchedArtist}
         />
       </div>

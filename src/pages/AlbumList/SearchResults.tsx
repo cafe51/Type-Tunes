@@ -25,13 +25,13 @@ const SearchResultsWrapper = styled.div`
 
 class SearchResults extends React.Component<SearchResultProps> {
   render() {
-    const { searchResult, searchedArtist } = this.props;
+    const { displayedResult, searchedArtist } = this.props;
 
     return (
       <SearchResultsWrapper>
         <AlbumCardsList
-          searchResult={searchResult}
-          notice={searchResult.length > 0 ? `Resultado de álbuns de: ${searchedArtist}` : 'Nenhum álbum foi encontrado'}
+          displayedResult={displayedResult}
+          notice={displayedResult.length > 0 ? `Resultado de álbuns de: ${searchedArtist}` : 'Nenhum álbum foi encontrado'}
         />
       </SearchResultsWrapper>
     );

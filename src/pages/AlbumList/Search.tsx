@@ -4,9 +4,8 @@ import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import SearchSection from './SearchSection';
 import { InsertEventInterface} from '../../interfaces';
-import { SearchState } from '../../types';
 import styled from 'styled-components';
-
+import { SearchState } from '../../types';
 
 const SearchWrapper = styled.div`
   padding-top: 100px;
@@ -19,8 +18,30 @@ class Search extends React.Component {
     searchedArtist: '',
     isLoading: false,
     searchResult: [],
+    displayedResult: [], 
+    albumsToShow: 2,
     notice: 'Pesquise uma banda ou artista',
   };
+  
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const { searchResult, albumsToShow } = this.state;
+
+    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+
+    this.setState({
+      albumsToShow: albumsToShow + 1,
+      displayedResult: searchResult.slice(0, albumsToShow + 1),
+    });
+  };
+
 
   handleInputChange = ({ target }: InsertEventInterface ) => {
     const { name, type, checked } = target;
@@ -41,14 +62,16 @@ class Search extends React.Component {
           isLoading: false,
           artistNameInput: '',
           searchResult: artistAlbums,
+          displayedResult: artistAlbums.slice(0, this.state.albumsToShow), // atualiza os álbuns atualmente exibidos
           isFormDisabled: true,
           notice: 'Nenhum álbum foi encontrado',
         });
       });
   };
 
+
   render() {
-    const { artistNameInput, isFormDisabled, searchedArtist, searchResult, isLoading } = this.state;
+    const { artistNameInput, isFormDisabled, searchedArtist, displayedResult, isLoading } = this.state;
   
     return (
       <div data-testid="page-search">
@@ -61,7 +84,7 @@ class Search extends React.Component {
               isFormDisabled={isFormDisabled}
               handleInputChange={this.handleInputChange}
               fetchArtistAlbums={this.fetchArtistAlbums}
-              searchResult={searchResult}
+              displayedResult={displayedResult}
               searchedArtist={searchedArtist}
             /> 
           }

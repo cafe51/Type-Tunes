@@ -24,6 +24,8 @@ export type SearchState = {
   searchedArtist: string,
   isLoading: boolean,
   searchResult: [] | Iartist[];
+  displayedResult: [] | Iartist[];
+  albumsToShow: number;
   notice: string,
 }
 

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
-// import logo from '../images/logo.png';
 import { headerStateType } from '../types';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
