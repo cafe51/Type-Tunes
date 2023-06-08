@@ -5,6 +5,12 @@ import Header from '../../components/Header';
 import SearchSection from './SearchSection';
 import { InsertEventInterface} from '../../interfaces';
 import { SearchState } from '../../types';
+import styled from 'styled-components';
+
+
+const SearchWrapper = styled.div`
+  padding-top: 100px;
+`;
 
 class Search extends React.Component {
   state: SearchState = {
@@ -47,17 +53,19 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         <Header />
-        { isLoading 
-          ? <Loading /> 
-          : <SearchSection
-            artistNameInput={artistNameInput}
-            isFormDisabled={isFormDisabled}
-            handleInputChange={this.handleInputChange}
-            fetchArtistAlbums={this.fetchArtistAlbums}
-            searchResult={searchResult}
-            searchedArtist={searchedArtist}
-          /> 
-        }
+        <SearchWrapper>
+          { isLoading 
+            ? <Loading /> 
+            : <SearchSection
+              artistNameInput={artistNameInput}
+              isFormDisabled={isFormDisabled}
+              handleInputChange={this.handleInputChange}
+              fetchArtistAlbums={this.fetchArtistAlbums}
+              searchResult={searchResult}
+              searchedArtist={searchedArtist}
+            /> 
+          }
+        </SearchWrapper>
       </div>
     );
   }

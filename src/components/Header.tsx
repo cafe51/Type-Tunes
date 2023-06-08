@@ -15,6 +15,11 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 10px 30px 10px 20px;
+  position: fixed;
+  background-color: yellow;
+  width: 100%;
+  box-sizing: border-box;
+
 `;
 
 const HeaderSection = styled.div<PositionProps>`
