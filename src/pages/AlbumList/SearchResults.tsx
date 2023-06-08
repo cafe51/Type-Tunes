@@ -10,6 +10,17 @@ const SearchResultsWrapper = styled.div`
   width: 80%;
   margin: auto;
   text-align: center;
+  color: white;
+  text-shadow: 0px 4px 4px #000000;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+
+  h2 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 `;
 
 class SearchResults extends React.Component<SearchResultProps> {

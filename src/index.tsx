@@ -10,13 +10,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-  }
+    background-color: green;
+    background: linear-gradient(90deg, #25162E 34.29%, #7F11B0 65.42%, #54008B 87.83%);
 
-  h1 {
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
   }
+  
 
 `;
 

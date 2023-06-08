@@ -7,9 +7,17 @@ const Card = styled.div`
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px black;
+  background-color: pink;
 
   img {
-    border-radius: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 2px 10px black;
+    width: 80%;
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
 
@@ -42,7 +50,7 @@ export default class AlbumCard extends React.Component<AlbumCardProps> {
           <div>
             <img alt={ collectionName } src={ artworkUrl100.replace('100x100bb', '316x316bf') } />
             <h3>{collectionName} </h3>
-            <h4>{ collectionPrice }</h4>
+            <h4>$ { collectionPrice }</h4>
           </div>
         </Link>
       </Card>

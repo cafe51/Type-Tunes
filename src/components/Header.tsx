@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
-import logo from '../images/logo.png';
+// import logo from '../images/logo.png';
 import { headerStateType } from '../types';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
@@ -11,16 +11,30 @@ interface PositionProps {
   position: 'start' | 'center' | 'end';
 }
 
-
-
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 10px 30px 10px 20px;
   position: fixed;
-  background-color: yellow;
+  background: radial-gradient(
+      89.23% 1958.28% at 95.38% 49.55%,
+      #56008D 2.32%,
+      #350B53 16.93%,
+      #221828 38.86%,
+      #1F1523 63.89%,
+      #24162D 72.69%,
+      #25162E 81.14%
+    );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+
+  color: white;
   width: 100%;
   box-sizing: border-box;
+
+  a {
+    color: yellow;
+    text-decoration: none;
+  }
 
 `;
 
@@ -31,13 +45,26 @@ const HeaderSection = styled.div<PositionProps>`
   flex: 1;
 `;
 
-const HeaderLogo = styled.img`
-  width: 100px;
+const HeaderSectionLogo = styled.div<PositionProps>`
+  /* display: flex;
+  justify-content: ${(props: PositionProps) => (props.position)};
+  align-items: center;
+  flex: 1; */
+`;
+
+const HeaderLogo = styled.h1`
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 120%;
+  color: #FFFFFF;
+  text-shadow: 0px 0px 10px #C881F8;
 `;
 
 const UserName = styled(Link)`
   cursor: pointer;
-  width: 100px;
+  width: 50px;
 `;
 
 const NavMenu = styled.nav`
@@ -131,9 +158,9 @@ class Header extends React.Component<any, HeaderState> {
         <HeaderSection position='start'>
           {saudação}
         </HeaderSection>
-        <HeaderSection position='center'>
-          <HeaderLogo alt="logo" src={logo} />
-        </HeaderSection>
+        <HeaderSectionLogo position='center'>
+          <HeaderLogo>TYPE TUNES</HeaderLogo>
+        </HeaderSectionLogo>
         <HeaderSection position='end'>
           <HamburgerMobile onClick={this.handleMenuClick}>
             {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
