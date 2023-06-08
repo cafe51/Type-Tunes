@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -6,28 +5,38 @@ import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../images/logo.png';
 import { headerStateType } from '../types';
-// import { IdefaultUser } from '../interfaces';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
-// Aqui criamos os componentes estilizados
+interface PositionProps {
+  position: 'start' | 'center' | 'end';
+}
+
 const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
+  padding: 10px 30px 10px 20px;
+`;
+
+const HeaderSection = styled.div<PositionProps>`
+  display: flex;
+  justify-content: ${(props: PositionProps) => (props.position)};
   align-items: center;
-  padding: 10px;
+  flex: 1;
 `;
 
 const HeaderLogo = styled.img`
   width: 100px;
 `;
 
-const UserName = styled.div`
+const UserName = styled(Link)`
   cursor: pointer;
+  width: 100px;
 `;
 
 const NavMenu = styled.nav`
   display: none;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 60px;
   width: 200px;
   height: 100%;
@@ -37,13 +46,21 @@ const NavMenu = styled.nav`
 const NavLink = styled(Link)`
   display: block;
   padding: 10px;
+  text-align: center
+`;
+
+const Hamburger = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;
 
 interface HeaderState extends headerStateType {
   isMenuOpen: boolean;
 }
 
-class Header extends React.Component<{}, HeaderState> {
+class Header extends React.Component<any, HeaderState> {
   state: HeaderState = {
     user: null,
     loading: false,
@@ -61,7 +78,7 @@ class Header extends React.Component<{}, HeaderState> {
       });
   }
 
-  handleUserNameClick = () => {
+  handleMenuClick = () => {
     this.setState(prevState => ({
       isMenuOpen: !prevState.isMenuOpen
     }));
@@ -75,19 +92,28 @@ class Header extends React.Component<{}, HeaderState> {
       loading
         ? <Loading />
         : (
-          <UserName data-testid="header-user-name" onClick={this.handleUserNameClick}>
+          <UserName data-testid="header-user-name" to="/profile">
             { user ? user.name : 'Usuário não encontrado' }
           </UserName>
         ));
 
     return (
       <HeaderWrapper data-testid="header-component">
-        {saudação}
-        <HeaderLogo alt="logo" src={logo} />
-        <NavLink data-testid="link-to-search" to="/search">
-          Search
-        </NavLink>
+        <HeaderSection position='start'>
+          {saudação}
+        </HeaderSection>
+        <HeaderSection position='center'>
+          <HeaderLogo alt="logo" src={logo} />
+        </HeaderSection>
+        <HeaderSection position='end'>
+          <Hamburger onClick={this.handleMenuClick}>
+            {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+          </Hamburger>
+        </HeaderSection>
         <NavMenu style={{ display: isMenuOpen ? 'block' : 'none' }}>
+          <NavLink data-testid="link-to-search" to="/search">
+            Search
+          </NavLink>
           <NavLink data-testid="link-to-favorites" to="/favorites">
             Favoritas
           </NavLink>

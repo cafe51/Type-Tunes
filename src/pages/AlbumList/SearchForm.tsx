@@ -1,7 +1,6 @@
 import React from 'react';
 import { SearchFormProps } from '../../types';
 
-
 export default class SearchForm extends React.Component<SearchFormProps> {
 
   render() {

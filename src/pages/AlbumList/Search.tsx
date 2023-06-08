@@ -1,4 +1,3 @@
-// Search.js
 import React from 'react';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import Loading from '../../components/Loading';
