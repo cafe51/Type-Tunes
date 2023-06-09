@@ -7,6 +7,8 @@ export type MusicCardProps = {
   favoriteChange: (event: InsertEventInterface) => Promise<void>;
   favoriteChecked: (arg0: string) => boolean;
   isLoading: boolean;
+  playingTrackId: string | null;
+  handleTrackPlay: (arg0: string) => void;
 }
 
 export type MusicComponentProps = {

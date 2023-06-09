@@ -11,6 +11,7 @@ export type MusicComponentState = {
   loading: boolean,
   favoritas: Isong[],
   currentSongId: string | null,
+  playingTrackId: string | null,
 }
 
 export type headerStateType = {

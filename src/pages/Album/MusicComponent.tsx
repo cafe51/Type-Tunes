@@ -29,6 +29,7 @@ class MusicComponent extends React.Component<MusicComponentProps> {
     loading: false,
     favoritas: [],
     currentSongId: null,
+    playingTrackId: null,
   };
 
 
@@ -78,11 +79,16 @@ class MusicComponent extends React.Component<MusicComponentProps> {
     song ? await this.addOrRemoveSong(song, event.target.checked, favoritas) : this.setState({ currentSongId: null });
   };
 
+  handleTrackPlay = (trackId: string) => {
+    this.setState({ playingTrackId: trackId });
+  };
+
   checkIfIsChecked = (id: string) => this.state.favoritas.filter((song) => song.trackId === id).length >= 1;
 
   render() {
-    const { loading, currentSongId } = this.state;
+    const { loading, currentSongId, playingTrackId } = this.state;
     const { listaDeMusicas } = this.props;
+
     return (
       <ListWrapper>
         <MusicCardList
@@ -101,6 +107,8 @@ class MusicComponent extends React.Component<MusicComponentProps> {
                   favoriteChange={this.handleChange}
                   favoriteChecked={this.checkIfIsChecked}
                   isLoading={isLoading}
+                  playingTrackId={playingTrackId}
+                  handleTrackPlay={this.handleTrackPlay}
                 />
               </CardWrapper>
             );

@@ -40,6 +40,8 @@ class MusicCard extends React.Component<MusicCardProps> {
       if (audio.paused) {
         audio.play();
         this.setState({ isPlaying: true });
+        // Inform the parent that this track is playing
+        this.props.handleTrackPlay(this.props.trackId);
       } else {
         audio.pause();
         this.setState({ isPlaying: false });
@@ -94,6 +96,16 @@ class MusicCard extends React.Component<MusicCardProps> {
     const audio = this.audioRef.current;
     if (audio) {
       audio.removeEventListener('timeupdate', this.handleTimeUpdate);
+    }
+  }
+
+  componentDidUpdate(prevProps: MusicCardProps) {
+    if (this.props.playingTrackId !== this.props.trackId && this.props.playingTrackId !== prevProps.playingTrackId) {
+      const audio = this.audioRef.current;
+      if (audio && !audio.paused) {
+        audio.pause();
+        this.setState({ isPlaying: false });
+      }
     }
   }
 
