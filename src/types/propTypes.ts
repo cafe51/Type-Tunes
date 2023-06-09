@@ -3,6 +3,10 @@ import { Isong, Iartist, InsertEventInterface } from '../interfaces';
 export type MusicCardProps = {
   trackName: string;
   previewUrl: string;
+  trackId: string;
+  favoriteChange: (event: InsertEventInterface) => Promise<void>;
+  favoriteChecked: (arg0: string) => boolean;
+  isLoading: boolean;
 }
 
 export type MusicComponentProps = {

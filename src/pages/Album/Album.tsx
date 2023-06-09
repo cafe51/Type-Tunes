@@ -8,8 +8,12 @@ import { Isong, Iartist } from '../../interfaces';
 import styled from 'styled-components';
 
 const AlbumWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 100px;
   width: 99%;
+  color: white;
 `;
 
 

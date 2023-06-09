@@ -1,5 +1,4 @@
 import React from 'react';
-import Loading from '../../components/Loading';
 import MusicCard from './MusicCard';
 import { addSong, removeSong, getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import { Isong, InsertEventInterface } from '../../interfaces';
@@ -11,15 +10,21 @@ const ListWrapper = styled.div`
   justify-content: center;
 `;
 
+const CardWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+`;
+
 const MusicCardList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   padding: 5px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 80%;
   word-wrap: break-word;
-  background-color: yellow;
+  /* background-color: yellow; */
 `;
 
 class MusicComponent extends React.Component<MusicComponentProps> {
@@ -90,22 +95,18 @@ class MusicComponent extends React.Component<MusicComponentProps> {
           }) => {
             const isLoading = (currentSongId === trackId || loading);
             const card = (
-              <div key={ trackId } style={ { width: '100%' } }>
-                <MusicCard trackName={trackName} previewUrl={previewUrl} />
-                { isLoading
-                  ? <div><Loading /></div>
-                  :
-                  <label htmlFor={ trackId }>
-                    Favorita
-                    <input
-                      data-testid={ `checkbox-music-${trackId}` }
-                      type="checkbox"
-                      id={ trackId }
-                      onChange={ this.handleChange }
-                      checked={ this.checkIfIsChecked(trackId) }
-                    />
-                  </label>}
-              </div>
+              <CardWrapper key={ trackId }
+                // style={ { width: '100%' } }
+              >
+                <MusicCard
+                  trackName={trackName}
+                  previewUrl={previewUrl}
+                  trackId={trackId}
+                  favoriteChange={this.handleChange}
+                  favoriteChecked={this.checkIfIsChecked}
+                  isLoading={isLoading}
+                />
+              </CardWrapper>
             );
             return card;
           })}
