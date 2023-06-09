@@ -32,7 +32,7 @@ describe('9 - Faça a requisição para recuperar as músicas favoritas ao entra
       renderPath('/album/12');
 
       await waitFor(() => {
-        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       expect(spy).toBeCalled();
@@ -48,7 +48,7 @@ describe('9 - Faça a requisição para recuperar as músicas favoritas ao entra
       renderPath('/album/12');
 
       await waitFor(() => {
-        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(2);

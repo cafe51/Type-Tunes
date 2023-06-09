@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  h4 {
+    font-size: 16px;
+  }
   body {
     margin: 0;
     padding: 0;
@@ -27,7 +30,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   
-
 `;
 
 const root = ReactDOM.createRoot(

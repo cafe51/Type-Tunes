@@ -24,7 +24,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       renderPath('/album/123');
 
       await waitFor(() => {
-        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       expect(screen.getByTestId('checkbox-music-12')).toBeInTheDocument();
@@ -44,14 +44,14 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       renderPath('/album/123');
 
       await waitFor(() => {
-        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
-      expect(screen.getByTestId('unchecked-star-12').style.animation).toEqual('rotation 2s infinite linear');
+      expect(screen.getByTestId('unchecked-star-12').style.animation).toEqual('rotation 0.5s infinite linear');
 
       await waitFor(() => {
-        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       expect(spy).toHaveBeenCalled();
@@ -72,7 +72,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       );
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
-      expect(screen.getByTestId('unchecked-star-12').style.animation).toEqual('rotation 2s infinite linear');
+      expect(screen.getByTestId('unchecked-star-12').style.animation).toEqual('rotation 0.5s infinite linear');
 
       await waitFor(
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
@@ -92,27 +92,27 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       renderPath('/album/123');
 
       await waitFor(() => {
-        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(0);
       expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(4);
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
-      expect(screen.getByTestId('unchecked-star-12').style.animation).toEqual('rotation 2s infinite linear');
+      expect(screen.getByTestId('unchecked-star-12').style.animation).toEqual('rotation 0.5s infinite linear');
 
       await waitFor(() => {
-        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(1);
       expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(3);
 
       userEvent.click(screen.getByTestId('checkbox-music-31'));
-      expect(screen.getByTestId('unchecked-star-31').style.animation).toEqual('rotation 2s infinite linear');
+      expect(screen.getByTestId('unchecked-star-31').style.animation).toEqual('rotation 0.5s infinite linear');
 
       await waitFor(() => {
-        expect(screen.getByTestId('checked-star-31').style.animation).not.toEqual('rotation 2s infinite linear');
+        expect(screen.getByTestId('checked-star-31').style.animation).not.toEqual('rotation 0.5s infinite linear');
       }, { timeout: 3000 });
 
       expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(2);

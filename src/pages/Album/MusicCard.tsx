@@ -11,6 +11,8 @@ const MusicCardWrapper = styled.div`
   align-items: left;
   width: 100%;
   word-wrap: break-word;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 `;
 
 const ButtonAndCheckFavorite = styled.div`
@@ -29,24 +31,39 @@ const CustomButton = styled.button`
 `;
 
 const FavoriteStar = styled.div`
-  font-size: 50px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 `;
 
 const ProgressBar = styled.div`
   width: 100%;
   height: 40px;
   cursor: pointer;
-  background-color: #ddd;
+  background-color: green;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 `;
 
 const ProgressBarFill = styled.div`
   height: 100%;
-  background-color: #aaa;
+  background-color: red;
+  opacity: 0.8;
+  position: absolute;
+  left: 0;
+`;
+
+const TrackName = styled.h4`
+  position: relative;
+  /* z-index: 1; */
+  color: white;
 `;
 
 class MusicCard extends React.Component<MusicCardProps> {
@@ -123,7 +140,7 @@ class MusicCard extends React.Component<MusicCardProps> {
       cursor: 'pointer',
       transition: 'all 0.2s ease',
       fontSize: '2em',
-      animation: isLoading ? 'rotation 2s infinite linear' : undefined,
+      animation: isLoading ? 'rotation 0.5s infinite linear' : undefined,
     };
   
     const checkedStyles = {
@@ -156,8 +173,7 @@ class MusicCard extends React.Component<MusicCardProps> {
     const { progress, isPlaying } = this.state;
     return (
       <MusicCardWrapper>
-        <h4>{trackName}</h4>
-
+  
         <audio data-testid="audio-component"
           ref={this.audioRef} src={ previewUrl }>
           <track kind="captions" />
@@ -174,7 +190,9 @@ class MusicCard extends React.Component<MusicCardProps> {
           onTouchMove={this.handleProgressBarMove}
         >
           <ProgressBarFill style={{ width: `${progress}%` }} />
+          <TrackName>{trackName}</TrackName>
         </ProgressBar>
+
         <ButtonAndCheckFavorite>
           <CustomButton onClick={this.handlePlayPause}>
             {isPlaying ? <FaPause /> : <FaPlay />}
@@ -184,8 +202,6 @@ class MusicCard extends React.Component<MusicCardProps> {
           </div>
         </ButtonAndCheckFavorite>
 
-
-        
       </MusicCardWrapper>
     );
   }
