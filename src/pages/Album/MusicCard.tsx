@@ -1,8 +1,10 @@
 import React from 'react';
 import { MusicCardProps } from '../../types';
-import Loading from '../../components/Loading';
 import styled from 'styled-components';
-import { FaPlay, FaPause, FaStar, FaRegStar } from 'react-icons/fa';
+import ProgressBar from './ProgressBar';
+import FavoriteCheckBox from './FavoriteCheckBox';
+import PlayPauseButton from './PlayPauseButton';
+import AudioPlayer from './AudioPlayer';
 
 
 const MusicCardWrapper = styled.div`
@@ -16,55 +18,12 @@ const MusicCardWrapper = styled.div`
 `;
 
 const ButtonAndCheckFavorite = styled.div`
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const CustomButton = styled.button`
-  background-color: pink;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-top: 10px;
-`;
-
-const FavoriteStar = styled.div`
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-`;
-
-const ProgressBar = styled.div`
-  width: 100%;
-  height: 40px;
-  cursor: pointer;
-  background-color: green;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-`;
-
-const ProgressBarFill = styled.div`
-  height: 100%;
-  background-color: red;
-  opacity: 0.8;
-  position: absolute;
-  left: 0;
-`;
-
-const TrackName = styled.h4`
-  position: relative;
-  /* z-index: 1; */
-  color: white;
-`;
 
 class MusicCard extends React.Component<MusicCardProps> {
   audioRef = React.createRef<HTMLAudioElement>();
@@ -107,15 +66,18 @@ class MusicCard extends React.Component<MusicCardProps> {
   };
 
   handleProgressBarStart = (event: React.MouseEvent | React.TouchEvent) => {
+    event.stopPropagation();
     this.handleProgressBarInteraction(event);
     this.setState({ dragging: true });
   };
 
-  handleProgressBarEnd = () => {
+  handleProgressBarEnd = (event: React.MouseEvent | React.TouchEvent) => {
+    event.stopPropagation();
     this.setState({ dragging: false });
   };
 
   handleProgressBarMove = (event: React.MouseEvent | React.TouchEvent) => {
+    event.stopPropagation();
     if (this.state.dragging) {
       this.handleProgressBarInteraction(event);
     }
@@ -135,71 +97,35 @@ class MusicCard extends React.Component<MusicCardProps> {
     }
   }
 
-  favoriteCheckBox = (isLoading: boolean, trackId: string, favoriteChange: (event: any) => Promise<void>, favoriteChecked: (arg0: string) => boolean) => {
-    const commonStyles = {
-      cursor: 'pointer',
-      transition: 'all 0.2s ease',
-      fontSize: '2em',
-      animation: isLoading ? 'rotation 0.5s infinite linear' : undefined,
-    };
-  
-    const checkedStyles = {
-      color: 'yellow',
-      filter: 'drop-shadow(0px 0px 10px yellow)',
-    };
-  
-    const uncheckedStyles = {
-      color: 'grey',
-    };
-    return (
-      <FavoriteStar
-        id={ trackId }
-        data-testid={ `checkbox-music-${trackId}` }
-        onClick={() => favoriteChange({
-          target: {
-            id: trackId,
-            checked: !favoriteChecked(trackId)
-          }
-        })}
-      >
-        {favoriteChecked(trackId) 
-          ? <FaStar data-testid={ `checked-star-${trackId}` } style={{ ...commonStyles, ...checkedStyles }} />
-          : <FaRegStar data-testid={ `unchecked-star-${trackId}` } style={{ ...commonStyles, ...uncheckedStyles }} />}
-      </FavoriteStar>
-    );};
-    
   render() {
     const { trackName, previewUrl, trackId, favoriteChange, favoriteChecked, isLoading } = this.props;
     const { progress, isPlaying } = this.state;
     return (
       <MusicCardWrapper>
-  
-        <audio data-testid="audio-component"
-          ref={this.audioRef} src={ previewUrl }>
-          <track kind="captions" />
-          <p>O seu navegador não suporta o elemento</p>
-          <code>audio</code>
-        </audio>
-
-        <ProgressBar 
-          onMouseDown={this.handleProgressBarStart}
-          onMouseUp={this.handleProgressBarEnd}
-          onMouseMove={this.handleProgressBarMove}
-          onTouchStart={this.handleProgressBarStart}
-          onTouchEnd={this.handleProgressBarEnd}
-          onTouchMove={this.handleProgressBarMove}
-        >
-          <ProgressBarFill style={{ width: `${progress}%` }} />
-          <TrackName>{trackName}</TrackName>
-        </ProgressBar>
-
+        <AudioPlayer
+          audioRef={this.audioRef}
+          previewUrl={previewUrl}
+          handleTimeUpdate={this.handleTimeUpdate}
+        />
+        <ProgressBar
+          progress={progress}
+          trackName={trackName}
+          handleProgressBarStart={this.handleProgressBarStart}
+          handleProgressBarEnd={this.handleProgressBarEnd}
+          handleProgressBarMove={this.handleProgressBarMove}
+        />
         <ButtonAndCheckFavorite>
-          <CustomButton onClick={this.handlePlayPause}>
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </CustomButton>
-          <div>
-            {this.favoriteCheckBox(isLoading, trackId, favoriteChange, favoriteChecked)}
-          </div>
+          <PlayPauseButton
+            isPlaying={isPlaying}
+            handlePlayPause={this.handlePlayPause}
+          />
+          <FavoriteCheckBox
+            isLoading={isLoading}
+            trackId={trackId}
+            favoriteChange={favoriteChange}
+            favoriteChecked={favoriteChecked}
+          />
+
         </ButtonAndCheckFavorite>
 
       </MusicCardWrapper>
