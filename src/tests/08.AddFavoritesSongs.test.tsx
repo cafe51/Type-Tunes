@@ -15,7 +15,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
 
   afterEach(() => localStorage.clear());
 
-  it('Será validado se existe um checkbox para cada música da lista',
+  it('Será validado se existe um checkbox estrela para cada música da lista',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -34,7 +34,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       expect(screen.getByTestId('checkbox-music-42')).toBeInTheDocument();
     });
 
-  it('Será validado se a função addSong é chamada quando algum checkbox é clicado',
+  it('Será validado se a função addSong é chamada quando algum checkbox estrela é clicado',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -59,7 +59,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
     });
 
 
-  it('Será validado se a mensagem Carregando... é exibida após clicar no checkbox e removida depois do retorno da API',
+  it('Será validado se a mensagem Carregando... é exibida após clicar no checkbox estrela e removida depois do retorno da API',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -83,7 +83,7 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
       expect(screen.queryByText('Carregando...')).not.toBeInTheDocument();
     });
 
-  it('Será validado se o número de checkboxes marcados como checked aumenta quando um checkbox é clicado',
+  it('Será validado se o número de checkboxes estrela marcados como checked aumenta quando um checkbox estrela é clicado',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -97,8 +97,8 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(0);
-      expect(screen.getAllByRole('checkbox', { checked: false })).toHaveLength(4);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(0);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(4);
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
       await waitFor(
@@ -106,8 +106,8 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(1);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(3);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(1);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(3);
 
       userEvent.click(screen.getByTestId('checkbox-music-31'));
       await waitFor(
@@ -115,8 +115,8 @@ describe('8 - Crie o mecanismo para adicionar músicas na lista de músicas favo
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(2);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(2);
 
     });
 });

@@ -41,7 +41,7 @@ describe('10 - Faça a requisição para recuperar as músicas favoritas e atual
 
 
 
-  it('Será validado se o número de checkboxes marcados como checked aumenta quando um checkbox é clicado',
+  it('Será validado se o número de checkboxes estrela marcados como checked aumenta quando um checkbox estrela é clicado',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -55,8 +55,8 @@ describe('10 - Faça a requisição para recuperar as músicas favoritas e atual
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(0);
-      expect(screen.getAllByRole('checkbox', { checked: false })).toHaveLength(4);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(0);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(4);
 
       userEvent.click(screen.getByTestId('checkbox-music-12'));
       await waitFor(
@@ -64,8 +64,8 @@ describe('10 - Faça a requisição para recuperar as músicas favoritas e atual
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(1);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(3);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(1);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(3);
 
       userEvent.click(screen.getByTestId('checkbox-music-31'));
       await waitFor(
@@ -73,8 +73,8 @@ describe('10 - Faça a requisição para recuperar as músicas favoritas e atual
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(2);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(2);
 
     });
 });

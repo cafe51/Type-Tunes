@@ -40,7 +40,7 @@ describe('9 - Faça a requisição para recuperar as músicas favoritas ao entra
     });
 
 
-  it('Será validado se, ao entrar na página, o número de checkboxes marcados como `checked` é correspondente ao número de músicas que já foram favoritadas',
+  it('Será validado se, ao entrar na página, o número de checkboxes estrela marcados como `checked` é correspondente ao número de músicas que já foram favoritadas',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -53,8 +53,8 @@ describe('9 - Faça a requisição para recuperar as músicas favoritas ao entra
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(2);
-      expect(screen.getAllByRole('checkbox', { checked: false })).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(2);
     });
 
 });

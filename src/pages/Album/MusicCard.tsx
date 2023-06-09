@@ -1,24 +1,22 @@
 import React from 'react';
 import { MusicCardProps } from '../../types';
-import { InsertEventInterface } from '../../interfaces';
 import Loading from '../../components/Loading';
 import styled from 'styled-components';
-import { FaPlay, FaPause } from 'react-icons/fa';
+import { FaPlay, FaPause, FaStar, FaRegStar } from 'react-icons/fa';
+
 
 const MusicCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  /* border: 1px solid black; */
   width: 100%;
   word-wrap: break-word;
-  /* background-color: green; */
-  /* background: linear-gradient(
-    90deg,
+`;
 
-    #54008B 87.83%
-    #25162E 34.29%,
-    ); */
+const ButtonAndCheckFavorite = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const CustomButton = styled.button`
@@ -28,6 +26,13 @@ const CustomButton = styled.button`
   height: 50px;
   border-radius: 50%;
   margin-top: 10px;
+`;
+
+const FavoriteStar = styled.div`
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ProgressBar = styled.div`
@@ -113,20 +118,41 @@ class MusicCard extends React.Component<MusicCardProps> {
     }
   }
 
-  favoriteCheckBox = (trackId: string, favoriteChange: (event: InsertEventInterface) => Promise<void>, favoriteChecked: (arg0: string) => boolean) =>
-    (
-      <label htmlFor={ trackId }>
-                    Favorita
-        <input
-          data-testid={ `checkbox-music-${trackId}` }
-          type="checkbox"
+  favoriteCheckBox = (isLoading: boolean, trackId: string, favoriteChange: (event: any) => Promise<void>, favoriteChecked: (arg0: string) => boolean) => {
+    const commonStyles = {
+      cursor: 'pointer',
+      transition: 'all 0.2s ease',
+      fontSize: '2em',
+    };
+  
+    const checkedStyles = {
+      color: 'yellow',
+      filter: 'drop-shadow(0px 0px 10px yellow)',
+    };
+  
+    const uncheckedStyles = {
+      color: 'grey',
+    };
+    return (
+      isLoading
+        ? <div><Loading /></div>
+        :
+        <FavoriteStar
           id={ trackId }
-          onChange={ favoriteChange }
-          checked={ favoriteChecked(trackId) }
-        />
-      </label>
-    );
-
+          data-testid={ `checkbox-music-${trackId}` }
+          onClick={() => favoriteChange({
+            target: {
+              id: trackId,
+              checked: !favoriteChecked(trackId)
+            }
+          })}
+        >
+          {favoriteChecked(trackId) 
+            ? <FaStar data-testid={ `checked-star-${trackId}` } style={{ ...commonStyles, ...checkedStyles }} />
+            : <FaRegStar data-testid={ `unchecked-star-${trackId}` } style={{ ...commonStyles, ...uncheckedStyles }} />}
+        </FavoriteStar>
+    );};
+    
   render() {
     const { trackName, previewUrl, trackId, favoriteChange, favoriteChecked, isLoading } = this.props;
     const { progress, isPlaying } = this.state;
@@ -151,14 +177,17 @@ class MusicCard extends React.Component<MusicCardProps> {
         >
           <ProgressBarFill style={{ width: `${progress}%` }} />
         </ProgressBar>
+        <ButtonAndCheckFavorite>
+          <CustomButton onClick={this.handlePlayPause}>
+            {isPlaying ? <FaPause /> : <FaPlay />}
+          </CustomButton>
+          <div>
+            {this.favoriteCheckBox(isLoading, trackId, favoriteChange, favoriteChecked)}
+          </div>
+        </ButtonAndCheckFavorite>
 
-        <CustomButton onClick={this.handlePlayPause}>
-          {isPlaying ? <FaPause /> : <FaPlay />}
-        </CustomButton>
-        { isLoading
-          ? <div><Loading /></div>
-          : this.favoriteCheckBox(trackId, favoriteChange, favoriteChecked)
-        }
+
+        
       </MusicCardWrapper>
     );
   }

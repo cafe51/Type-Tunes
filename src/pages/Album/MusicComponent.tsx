@@ -14,17 +14,14 @@ const CardWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 `;
 
 const MusicCardList = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
-  /* border: 1px solid black; */
   width: 80%;
   word-wrap: break-word;
-  /* background-color: yellow; */
 `;
 
 class MusicComponent extends React.Component<MusicComponentProps> {
@@ -74,11 +71,11 @@ class MusicComponent extends React.Component<MusicComponentProps> {
     }
   };
 
-  handleChange = async ({ target: {id, checked} }: InsertEventInterface) => {
+  handleChange = async (event: InsertEventInterface) => {
     const { favoritas } = this.state;
-    const song = this.props.listaDeMusicas.find((song) => Number(song.trackId) === Number(id));
+    const song = this.props.listaDeMusicas.find((song) => Number(song.trackId) === Number(event.target.id));
     
-    song ? await this.addOrRemoveSong(song, checked, favoritas) : this.setState({ currentSongId: null });
+    song ? await this.addOrRemoveSong(song, event.target.checked, favoritas) : this.setState({ currentSongId: null });
   };
 
   checkIfIsChecked = (id: string) => this.state.favoritas.filter((song) => song.trackId === id).length >= 1;
@@ -89,14 +86,13 @@ class MusicComponent extends React.Component<MusicComponentProps> {
     return (
       <ListWrapper>
         <MusicCardList
-          // style={ { display: 'flex', flexFlow: 'wrap', border: '1px solid black', width: '100%', backgroundColor: 'green' } }
         >
           { listaDeMusicas.map(({ trackId, trackName, previewUrl
           }) => {
             const isLoading = (currentSongId === trackId || loading);
             const card = (
               <CardWrapper key={ trackId }
-                // style={ { width: '100%' } }
+                // style={ { width: '100%' } }InsertEventInterface
               >
                 <MusicCard
                   trackName={trackName}

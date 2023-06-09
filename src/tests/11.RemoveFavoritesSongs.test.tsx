@@ -23,8 +23,7 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
 
   afterEach(() => localStorage.clear());
 
-
-  it('Será validado se a função removeSong é chamada quando algum checkbox que já esteja marcado é clicado',
+  it('Será validado se a função removeSong é chamada quando algum checkbox estrela que já esteja marcado é clicado',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -39,8 +38,7 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
         { timeout: 3000 }
       );
 
-    
-      userEvent.click(screen.getByTestId('checkbox-music-12'));
+      userEvent.click(screen.getByTestId('checked-star-12'));
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
         { timeout: 3000 },
@@ -49,7 +47,7 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
       expect(spy).toHaveBeenCalled();
     });
 
-  it('Será validado se a mensagem Carregando... é exibida após clicar no checkbox e removida depois do retorno da API',
+  it('Será validado se a mensagem Carregando... é exibida após clicar no checkbox estrela e removida depois do retorno da API',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -61,7 +59,7 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
         () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
         { timeout: 3000 }
       );
-      userEvent.click(screen.getByTestId('checkbox-music-12'));
+      userEvent.click(screen.getByTestId('checked-star-12'));
 
       expect(screen.getByText('Carregando...')).toBeInTheDocument();
 
@@ -73,7 +71,7 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
       expect(screen.queryByText('Carregando...')).not.toBeInTheDocument();
     });
 
-  it('Será validado se o número de checkboxes marcados como checked diminui quando um checkbox marcado é clicado',
+  it('Será validado se o número de checkboxes estrela marcados como checked diminui quando um checkbox estrela marcado é clicado',
     async () => {
       jest.spyOn(musicsAPI, 'default').mockImplementation(
         () => Promise.resolve(musicAPIDefaultResponse),
@@ -86,25 +84,25 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
         { timeout: 3000 }
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(2);
-      expect(screen.getAllByRole('checkbox', { checked: false })).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(2);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(2);
 
-      userEvent.click(screen.getByTestId('checkbox-music-12'));
+      userEvent.click(screen.getByTestId('checked-star-12'));
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
         { timeout: 3000 },
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(1);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(3);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(1);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(3);
 
-      userEvent.click(screen.getByTestId('checkbox-music-31'));
+      userEvent.click(screen.getByTestId('checked-star-31'));
       await waitForElementToBeRemoved(
         () => screen.getAllByText('Carregando...'),
         { timeout: 3000 },
       );
 
-      expect(screen.queryAllByRole('checkbox', { checked: true })).toHaveLength(0);
-      expect(screen.queryAllByRole('checkbox', { checked: false })).toHaveLength(4);
+      expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(0);
+      expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(4);
     });
 });
