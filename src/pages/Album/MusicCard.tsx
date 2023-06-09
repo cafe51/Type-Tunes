@@ -22,19 +22,25 @@ const CustomButton = styled.button`
   margin-top: 10px;
 `;
 
-const ProgressBar = styled.progress`
+const ProgressBar = styled.div`
   width: 100%;
   height: 40px;
   cursor: pointer;
+  background-color: #ddd;
 `;
 
-class MusicCard extends React.Component<MusicCardProps> {
+const ProgressBarFill = styled.div`
+  height: 100%;
+  background-color: #aaa;
+`;
+
+class MusicCard extends React.Component<MusicCardProps, { progress: number, isPlaying: boolean, dragging: boolean }> {
   audioRef = React.createRef<HTMLAudioElement>();
-  progressRef = React.createRef<HTMLProgressElement>();
 
   state = {
     progress: 0,
-    isPlaying: false
+    isPlaying: false,
+    dragging: false
   };
 
   handlePlayPause = () => {
@@ -52,19 +58,34 @@ class MusicCard extends React.Component<MusicCardProps> {
 
   handleTimeUpdate = () => {
     const audio = this.audioRef.current;
-    if (audio) {
+    if (audio && !this.state.dragging) {
       this.setState({ progress: (audio.currentTime / audio.duration) * 100 });
     }
   };
 
-  handleProgressBarClick = (event: any) => {
+  handleProgressBarInteraction = (event: React.MouseEvent | React.TouchEvent) => {
     const audio = this.audioRef.current;
-    const progress = this.progressRef.current;
-    if (audio && progress) {
-      const rect = progress.getBoundingClientRect();
-      const x = event.clientX - rect.left;
+    if (audio) {
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = ('clientX' in event ? event.clientX : event.touches[0].clientX) - rect.left;
       const clickedPosition = x / rect.width;
       audio.currentTime = clickedPosition * audio.duration;
+      this.setState({ progress: clickedPosition * 100 });
+    }
+  };
+
+  handleProgressBarStart = (event: React.MouseEvent | React.TouchEvent) => {
+    this.handleProgressBarInteraction(event);
+    this.setState({ dragging: true });
+  };
+
+  handleProgressBarEnd = (event: React.MouseEvent | React.TouchEvent) => {
+    this.setState({ dragging: false });
+  };
+
+  handleProgressBarMove = (event: React.MouseEvent | React.TouchEvent) => {
+    if (this.state.dragging) {
+      this.handleProgressBarInteraction(event);
     }
   };
 
@@ -89,18 +110,23 @@ class MusicCard extends React.Component<MusicCardProps> {
       <MusicCardWrapper>
         <h4>{trackName}</h4>
 
-        <audio data-testid="audio-component" ref={this.audioRef} src={ previewUrl }>
+        <audio data-testid="audio-component"
+          ref={this.audioRef} src={ previewUrl }>
           <track kind="captions" />
           <p>O seu navegador não suporta o elemento</p>
           <code>audio</code>
         </audio>
 
         <ProgressBar 
-          ref={this.progressRef}
-          value={progress} 
-          max="100" 
-          onClick={this.handleProgressBarClick}
-        />
+          onMouseDown={this.handleProgressBarStart}
+          onMouseUp={this.handleProgressBarEnd}
+          onMouseMove={this.handleProgressBarMove}
+          onTouchStart={this.handleProgressBarStart}
+          onTouchEnd={this.handleProgressBarEnd}
+          onTouchMove={this.handleProgressBarMove}
+        >
+          <ProgressBarFill style={{ width: `${progress}%` }} />
+        </ProgressBar>
 
         <CustomButton onClick={this.handlePlayPause}>
           {isPlaying ? <FaPause /> : <FaPlay />}
