@@ -16,7 +16,15 @@ const GlobalStyle = createGlobalStyle`
       #7F11B0 65.42%,
       #54008B 87.83%
       );
+  }
 
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
   }
   
 

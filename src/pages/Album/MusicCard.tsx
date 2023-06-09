@@ -123,6 +123,7 @@ class MusicCard extends React.Component<MusicCardProps> {
       cursor: 'pointer',
       transition: 'all 0.2s ease',
       fontSize: '2em',
+      animation: isLoading ? 'rotation 2s infinite linear' : undefined,
     };
   
     const checkedStyles = {
@@ -134,23 +135,20 @@ class MusicCard extends React.Component<MusicCardProps> {
       color: 'grey',
     };
     return (
-      isLoading
-        ? <div><Loading /></div>
-        :
-        <FavoriteStar
-          id={ trackId }
-          data-testid={ `checkbox-music-${trackId}` }
-          onClick={() => favoriteChange({
-            target: {
-              id: trackId,
-              checked: !favoriteChecked(trackId)
-            }
-          })}
-        >
-          {favoriteChecked(trackId) 
-            ? <FaStar data-testid={ `checked-star-${trackId}` } style={{ ...commonStyles, ...checkedStyles }} />
-            : <FaRegStar data-testid={ `unchecked-star-${trackId}` } style={{ ...commonStyles, ...uncheckedStyles }} />}
-        </FavoriteStar>
+      <FavoriteStar
+        id={ trackId }
+        data-testid={ `checkbox-music-${trackId}` }
+        onClick={() => favoriteChange({
+          target: {
+            id: trackId,
+            checked: !favoriteChecked(trackId)
+          }
+        })}
+      >
+        {favoriteChecked(trackId) 
+          ? <FaStar data-testid={ `checked-star-${trackId}` } style={{ ...commonStyles, ...checkedStyles }} />
+          : <FaRegStar data-testid={ `unchecked-star-${trackId}` } style={{ ...commonStyles, ...uncheckedStyles }} />}
+      </FavoriteStar>
     );};
     
   render() {

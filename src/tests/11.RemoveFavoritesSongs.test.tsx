@@ -33,16 +33,16 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
 
       renderPath('/album/12');
 
-      await waitFor(
-        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
-        { timeout: 3000 }
-      );
+      await waitFor(() => {
+        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+      }, { timeout: 3000 });
 
       userEvent.click(screen.getByTestId('checked-star-12'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
+      expect(screen.getByTestId('checked-star-12').style.animation).toEqual('rotation 2s infinite linear');
+
+      await waitFor(() => {
+        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+      }, { timeout: 3000 });
 
       expect(spy).toHaveBeenCalled();
     });
@@ -55,20 +55,18 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
 
       renderPath('/album/12');
 
-      await waitFor(
-        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
-        { timeout: 3000 }
-      );
+      await waitFor(() => {
+        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+      }, { timeout: 3000 });
+
       userEvent.click(screen.getByTestId('checked-star-12'));
+      expect(screen.getByTestId('checked-star-12').style.animation).toEqual('rotation 2s infinite linear');
 
-      expect(screen.getByText('Carregando...')).toBeInTheDocument();
+      await waitFor(() => {
+        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+      }, { timeout: 3000 });
 
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
-
-      expect(screen.queryByText('Carregando...')).not.toBeInTheDocument();
+      expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
     });
 
   it('Será validado se o número de checkboxes estrela marcados como checked diminui quando um checkbox estrela marcado é clicado',
@@ -79,28 +77,30 @@ describe('11 - Crie o mecanismo para remover músicas na lista de músicas favor
 
       renderPath('/album/12');
 
-      await waitFor(
-        () => expect(screen.queryAllByText('Carregando...')).toHaveLength(0),
-        { timeout: 3000 }
-      );
+      await waitFor(() => {
+        expect(screen.getByTestId('checked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+      }, { timeout: 3000 });
+
 
       expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(2);
       expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(2);
 
       userEvent.click(screen.getByTestId('checked-star-12'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
+      expect(screen.getByTestId('checked-star-12').style.animation).toEqual('rotation 2s infinite linear');
+      await waitFor(() => {
+        expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
+      }, { timeout: 3000 });
+      expect(screen.getByTestId('unchecked-star-12').style.animation).not.toEqual('rotation 2s infinite linear');
 
       expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(1);
       expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(3);
 
       userEvent.click(screen.getByTestId('checked-star-31'));
-      await waitForElementToBeRemoved(
-        () => screen.getAllByText('Carregando...'),
-        { timeout: 3000 },
-      );
+      expect(screen.getByTestId('checked-star-31').style.animation).toEqual('rotation 2s infinite linear');
+      await waitFor(() => {
+        expect(screen.getByTestId('unchecked-star-31').style.animation).not.toEqual('rotation 2s infinite linear');
+      }, { timeout: 3000 });
+      expect(screen.getByTestId('unchecked-star-31').style.animation).not.toEqual('rotation 2s infinite linear');
 
       expect(screen.queryAllByTestId(/^checked-star-/)).toHaveLength(0);
       expect(screen.queryAllByTestId(/^unchecked-star-/)).toHaveLength(4);
