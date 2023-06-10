@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
   h1 {
     font-size: 32px;
   }
@@ -13,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
   h4 {
     font-size: 16px;
   }
+  
   body {
     margin: 0;
     padding: 0;
