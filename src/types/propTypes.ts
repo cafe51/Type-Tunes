@@ -1,10 +1,23 @@
-import { Isong, Iartist, InsertEventInterface } from '../interfaces';
+import { Isong, Iartist, InsertEventInterface, InsertCheckEventInterface, IAlbumData } from '../interfaces';
+
+export type AlbumCardProps = {
+  albumData: IAlbumData
+  key?: number;
+}
+
+export type FavoriteCheckBoxProps = {
+  isLoading: boolean,
+  trackId: string,
+  favoriteChange: (event: InsertCheckEventInterface) => Promise<void>;
+  favoriteChecked: (arg0: string) => boolean
+};
+
 
 export type MusicCardProps = {
   trackName: string;
   previewUrl: string;
   trackId: string;
-  favoriteChange: (event: InsertEventInterface) => Promise<void>;
+  favoriteChange: (event: InsertCheckEventInterface) => Promise<void>;
   favoriteChecked: (arg0: string) => boolean;
   isLoading: boolean;
   playingTrackId: string | null;

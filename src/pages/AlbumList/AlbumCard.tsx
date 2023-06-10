@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { AlbumCardProps } from '../../types';
 
 const AlbumCardWrapper = styled.div`
   border-radius: 10px;
@@ -23,16 +23,6 @@ const AlbumCardWrapper = styled.div`
   }
 
 `;
-
-type AlbumCardProps = {
-  albumData: { 
-    collectionId: number;
-    collectionName: string;
-    collectionPrice: number;
-    artworkUrl100: string;
-  }
-  key?: number;
-}
 
 export default class AlbumCard extends React.Component<AlbumCardProps> {
   render() {

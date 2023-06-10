@@ -9,6 +9,13 @@ export interface Iartist {
   trackCount: number,
 }
 
+export interface IAlbumData { 
+  collectionId: number;
+  collectionName: string;
+  collectionPrice: number;
+  artworkUrl100: string;
+}
+
 export interface IdefaultUser {
   name: string,
   email?: string,
@@ -30,5 +37,12 @@ export interface InsertEventInterface {
     type: string;
     checked: boolean;
     value: string 
+  }
+}
+
+export interface InsertCheckEventInterface {
+  target: {
+    id: string;
+    checked: boolean;
   }
 }

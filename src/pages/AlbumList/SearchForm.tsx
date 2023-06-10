@@ -30,7 +30,6 @@ const Input = styled.input`
   font-weight: 400;
   font-size: 13px;
   line-height: 120%;
-/* identical to box height, or 16px */
 
 
 color: #FFFFFF;

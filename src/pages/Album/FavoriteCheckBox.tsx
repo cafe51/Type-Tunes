@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaStar, FaRegStar } from 'react-icons/fa';
+import { FavoriteCheckBoxProps } from '../../types';
 
 const FavoriteStar = styled.div`
   font-size: 25px;
@@ -8,13 +9,6 @@ const FavoriteStar = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-type FavoriteCheckBoxProps = {
-  isLoading: boolean,
-  trackId: string,
-  favoriteChange: (event: any) => Promise<void>,
-  favoriteChecked: (arg0: string) => boolean
-};
 
 class FavoriteCheckBox extends React.Component<FavoriteCheckBoxProps> {
   render() {

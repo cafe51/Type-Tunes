@@ -4,8 +4,9 @@ import {
   AlbumCardsListProps,
   SearchFormProps,
   SearchResultProps,
-  SearchSectionProps
-
+  SearchSectionProps,
+  AlbumCardProps,
+  FavoriteCheckBoxProps,
 } from './propTypes';
 
 import {
@@ -18,6 +19,8 @@ import {
 
 
 export {
+  type FavoriteCheckBoxProps,
+  type AlbumCardProps,
   type SearchSectionProps,
   type SearchResultProps,
   type MusicCardProps,

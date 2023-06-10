@@ -1,7 +1,7 @@
 import React from 'react';
 import MusicCard from './MusicCard';
 import { addSong, removeSong, getFavoriteSongs } from '../../services/favoriteSongsAPI';
-import { Isong, InsertEventInterface } from '../../interfaces';
+import { Isong, InsertCheckEventInterface } from '../../interfaces';
 import { MusicComponentProps, MusicComponentState } from '../../types';
 import styled from 'styled-components';
 
@@ -72,7 +72,7 @@ class MusicComponent extends React.Component<MusicComponentProps> {
     }
   };
 
-  handleChange = async (event: InsertEventInterface) => {
+  handleChange = async (event: InsertCheckEventInterface) => {
     const { favoritas } = this.state;
     const song = this.props.listaDeMusicas.find((song) => Number(song.trackId) === Number(event.target.id));
     

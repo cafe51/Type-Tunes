@@ -2,6 +2,7 @@ import React from 'react';
 import AlbumCard from './AlbumCard';
 import styled from 'styled-components';
 import { AlbumCardsListProps } from '../../types';
+import { IAlbumData } from '../../interfaces';
 
 const AlbumCardsListWrapper = styled.div`
   display: flex;
@@ -10,7 +11,6 @@ const AlbumCardsListWrapper = styled.div`
   text-align: center;
   width: 100%;
   color: white;
-  /* margin: auto; */
 
   h2 {
     margin-top: 40px;
@@ -26,14 +26,11 @@ const AlbumCardsListWrapper = styled.div`
 const SearchResultsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* background-color: green; */
   align-items: center;
-  /* justify-content  : center; */
   text-align: center;
   width: 99%;
   color: white;
   text-shadow: 0px 0px 10px #C881F8;
-  /* margin: auto; */
 
 `;
 
@@ -48,7 +45,7 @@ export default class AlbumCardsList extends React.Component<AlbumCardsListProps>
           ? (
             <SearchResultsWrapper>
               {displayedResult.map(
-                (albumData: any) => <AlbumCard albumData={ albumData } key={ albumData.collectionId }/>,
+                (albumData: IAlbumData) => <AlbumCard albumData={ albumData } key={ albumData.collectionId }/>,
               )}
             </SearchResultsWrapper>
           )

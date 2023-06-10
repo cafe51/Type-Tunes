@@ -45,12 +45,6 @@ const HeaderSection = styled.div<PositionProps>`
   flex: 1;
 `;
 
-const HeaderSectionLogo = styled.div<PositionProps>`
-  /* display: flex;
-  justify-content: ${(props: PositionProps) => (props.position)};
-  align-items: center;
-  flex: 1; */
-`;
 
 const HeaderLogo = styled.h1`
   font-family: 'Montserrat';
@@ -115,7 +109,7 @@ interface HeaderState extends headerStateType {
   isMenuOpen: boolean;
 }
 
-class Header extends React.Component<any, HeaderState> {
+class Header extends React.Component<Record<string, never>, HeaderState> {
   state: HeaderState = {
     user: null,
     loading: false,
@@ -157,9 +151,9 @@ class Header extends React.Component<any, HeaderState> {
         <HeaderSection position='start'>
           {saudação}
         </HeaderSection>
-        <HeaderSectionLogo position='center'>
+        <div>
           <HeaderLogo>TYPE TUNES</HeaderLogo>
-        </HeaderSectionLogo>
+        </div>
         <HeaderSection position='end'>
           <HamburgerMobile onClick={this.handleMenuClick}>
             {isMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
