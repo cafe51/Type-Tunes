@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ProgressBarWrapper = styled.div`
   width: 100%;
-  height: 40px;
+  height: 60px;
   cursor: pointer;
   background-color: green;
   border-bottom-right-radius: 20px;
@@ -13,6 +13,9 @@ const ProgressBarWrapper = styled.div`
   justify-content: center;
   position: relative;
   overflow: hidden;
+
+  /* padding-left: 20px;
+  padding-top: 10px; */
 `;
 
 const ProgressBarFill = styled.div`
@@ -21,6 +24,15 @@ const ProgressBarFill = styled.div`
   opacity: 0.8;
   position: absolute;
   left: 0;
+`;
+
+const TrackNameWrapper = styled.div`
+  text-align: center;
+  /* background-color: blue; */
+  width: 80%;
+  /* border: 1px solid white; */
+  padding: 16px;
+  /* padding-top */
 `;
 
 const TrackName = styled.h4`
@@ -49,7 +61,9 @@ class ProgressBar extends React.Component<ProgressBarProps> {
         onTouchMove={handleProgressBarMove}
       >
         <ProgressBarFill style={{ width: `${progress}%` }} />
-        <TrackName>{trackName}</TrackName>
+        <TrackNameWrapper>
+          <TrackName>{trackName}</TrackName>
+        </TrackNameWrapper>
       </ProgressBarWrapper>
     );
   }
