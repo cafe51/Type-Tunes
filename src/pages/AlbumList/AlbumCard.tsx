@@ -1,13 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Card = styled.div`
-  border: 1px solid black;
-  margin-bottom: 20px;
+const AlbumCardWrapper = styled.div`
   border-radius: 10px;
-  box-shadow: 2px 2px 10px black;
-  background-color: pink;
+  box-shadow: 2px 2px 8px #C881F8;
+  margin-bottom: 40px;
+  width: 80%;
 
   img {
     border-bottom-left-radius: 20px;
@@ -18,9 +18,11 @@ const Card = styled.div`
 
   a {
     text-decoration: none;
+    color: white;
+    text-shadow: 0px 0px 10px #C881F8;
   }
-`;
 
+`;
 
 type AlbumCardProps = {
   albumData: { 
@@ -29,31 +31,33 @@ type AlbumCardProps = {
     collectionPrice: number;
     artworkUrl100: string;
   }
+  key?: number;
 }
 
 export default class AlbumCard extends React.Component<AlbumCardProps> {
   render() {
-    const { albumData } = this.props; 
+    const { albumData, key } = this.props; 
     const {
       collectionId,
       collectionName,
       collectionPrice,
       artworkUrl100,
     } = albumData;
+    
 
     return (
-      <Card key={ collectionId }>
+      <AlbumCardWrapper key={key}>
         <Link
           to={ `/album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
         >
           <div>
-            <img alt={ collectionName } src={ artworkUrl100.replace('100x100bb', '316x316bf') } />
-            <h3>{collectionName} </h3>
+            <img alt={ collectionName } src={ artworkUrl100 } />
+            <h3 data-testid="album-name">{collectionName}</h3>
             <h4>$ { collectionPrice }</h4>
           </div>
         </Link>
-      </Card>
+      </AlbumCardWrapper>
     );
   }
 }

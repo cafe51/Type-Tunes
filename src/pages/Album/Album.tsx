@@ -6,14 +6,19 @@ import Loading from '../../components/Loading';
 import getMusics from '../../services/musicsAPI';
 import { Isong, Iartist } from '../../interfaces';
 import styled from 'styled-components';
+import AlbumCard from '../AlbumList/AlbumCard';
 
 const AlbumWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   padding-top: 100px;
   width: 99%;
-  color: white;
+
+  h1 {
+    margin-bottom: 30px;
+  }
 `;
 
 
@@ -36,19 +41,10 @@ class Album extends React.Component<Props> {
 
     const albumDetails = (
       <>
-        <div>
-          <h1 data-testid="artist-name">
-            {array[0].artistName}
-          </h1>
-          <img
-            alt={ array[0].collectionName }
-            src={ array[0].artworkUrl100 }
-          />
-          <h2 data-testid="album-name">
-            {array[0].collectionName}
-          </h2>
-          <p>{array[0].collectionPrice}</p>
-        </div>
+        <h1 data-testid="artist-name">
+          {array[0].artistName}
+        </h1>
+        <AlbumCard albumData={array[0]} key={array[0].collectionId}/>
         <MusicCard
           listaDeMusicas={ listaDeMusicas }
         />

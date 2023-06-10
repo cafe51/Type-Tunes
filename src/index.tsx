@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  h1 {
+    font-size: 32px;
+  }
+
   h4 {
     font-size: 16px;
   }
@@ -13,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Montserrat';
+    color: white;
+    text-shadow: 0px 0px 10px #C881F8;
     background-color: green;
     background: linear-gradient(90deg,
       #25162E 34.29%,

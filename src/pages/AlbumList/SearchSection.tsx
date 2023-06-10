@@ -3,6 +3,7 @@ import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import { SearchSectionProps } from '../../types';
 
+
 class SearchSection extends React.Component<SearchSectionProps> {
   render() {
     const { artistNameInput, isFormDisabled, handleInputChange, fetchArtistAlbums, displayedResult, searchedArtist } = this.props;
@@ -22,7 +23,7 @@ class SearchSection extends React.Component<SearchSectionProps> {
       </div>
     );
   }
-  
+
 }
 
 export default SearchSection;

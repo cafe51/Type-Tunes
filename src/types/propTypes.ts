@@ -17,7 +17,7 @@ export type MusicComponentProps = {
 }
 
 export type AlbumCardsListProps = {
-  searchResult: [] | Iartist[];
+  displayedResult: [] | Iartist[];
   notice: string;
 }
 

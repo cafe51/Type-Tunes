@@ -97,9 +97,7 @@ class MusicComponent extends React.Component<MusicComponentProps> {
           }) => {
             const isLoading = (currentSongId === trackId || loading);
             const card = (
-              <CardWrapper key={ trackId }
-                // style={ { width: '100%' } }InsertEventInterface
-              >
+              <CardWrapper key={ trackId }>
                 <MusicCard
                   trackName={trackName}
                   previewUrl={previewUrl}

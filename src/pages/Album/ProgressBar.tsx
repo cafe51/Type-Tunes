@@ -32,7 +32,7 @@ const ProgressBarFill = styled.div`
       #25162E 81.14%
     );
   filter: blur(1px);
-  text-shadow: 0px 10px 10px #C881F8;
+  box-shadow: 0px 10px 2px #C881F8;
   position: absolute;
   left: 0;
   border-right: 10px solid #C881F8;
