@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat';
     background-color: green;
     background: linear-gradient(90deg,
       #25162E 34.29%,

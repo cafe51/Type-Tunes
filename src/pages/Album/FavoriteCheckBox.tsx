@@ -7,7 +7,6 @@ const FavoriteStar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
 `;
 
 type FavoriteCheckBoxProps = {
@@ -34,7 +33,7 @@ class FavoriteCheckBox extends React.Component<FavoriteCheckBoxProps> {
     };
   
     const uncheckedStyles = {
-      color: 'grey',
+      color: '#C881F8',
     };
 
     return (
