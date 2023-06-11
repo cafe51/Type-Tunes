@@ -25,7 +25,6 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   text-align: center;
-  color: #FFFFFF;
   background: rgba(200, 129, 248, 0.9);
   border-radius: 8px;
 `;
@@ -34,7 +33,6 @@ export const Button = styled.button`
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 100%;

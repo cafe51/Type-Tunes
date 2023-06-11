@@ -3,26 +3,7 @@ import MusicCard from './MusicCard';
 import { addSong, removeSong, getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import { Isong, InsertCheckEventInterface } from '../../interfaces';
 import { MusicComponentProps, MusicComponentState } from '../../types';
-import styled from 'styled-components';
-
-const ListWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const CardWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const MusicCardList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px;
-  width: 80%;
-  word-wrap: break-word;
-`;
+import { CardWrapper, ListWrapper, MusicCardList } from '../../styles/MusicStyles';
 
 class MusicComponent extends React.Component<MusicComponentProps> {
   state: MusicComponentState = {

@@ -45,12 +45,7 @@ export const HeaderSection = styled.div<PositionProps>`
 `;
 
 export const HeaderLogo = styled.h1`
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
   font-size: 21px;
-  line-height: 120%;
-  color: #FFFFFF;
   text-shadow: 0px 0px 10px #C881F8;
 `;
 
@@ -59,15 +54,6 @@ export const UserName = styled(Link)`
   cursor: pointer;
   width: 50px;
 `;
-
-// export const NavMenu = styled.nav`
-//   display: none;
-//   position: absolute;
-//   right: 0;
-//   top: 60px;
-//   width: 200px;
-//   background: pink;
-// `;
 
 export const NavLink = styled(Link)`
   ${baseLinkStyle}
@@ -82,15 +68,6 @@ const baseHamburgerStyle = css`
   align-items: center;
   cursor: pointer;
 `;
-
-
-/* export const Hamburger = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`; */
-
 
 export const NavLinksDesktop = styled.div`
   display: none;

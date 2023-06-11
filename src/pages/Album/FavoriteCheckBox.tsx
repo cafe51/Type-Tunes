@@ -1,14 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { FavoriteCheckBoxProps } from '../../types';
-
-const FavoriteStar = styled.div`
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import { FavoriteStar } from '../../styles/MusicStyles';
 
 class FavoriteCheckBox extends React.Component<FavoriteCheckBoxProps> {
   render() {

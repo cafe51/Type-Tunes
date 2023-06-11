@@ -1,32 +1,10 @@
 import React from 'react';
 import { MusicCardProps } from '../../types';
-import styled from 'styled-components';
 import ProgressBar from './ProgressBar';
 import FavoriteCheckBox from './FavoriteCheckBox';
 import PlayPauseButton from './PlayPauseButton';
 import AudioPlayer from './AudioPlayer';
-
-
-const MusicCardWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  width: 100%;
-  word-wrap: break-word;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-`;
-
-const ButtonAndCheckFavorite = styled.div`
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 50px;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-`;
-
+import { ButtonAndCheckFavorite, MusicCardWrapper } from '../../styles/MusicStyles';
 
 class MusicCard extends React.Component<MusicCardProps> {
   audioRef = React.createRef<HTMLAudioElement>();
