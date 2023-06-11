@@ -4,7 +4,6 @@ import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import SearchSection from './SearchSection';
 import { InsertEventInterface} from '../../interfaces';
-import styled from 'styled-components';
 import { SearchState } from '../../types';
 import { SearchWrapper } from '../../styles/SearchStyles';
 

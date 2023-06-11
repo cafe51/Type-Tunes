@@ -5,21 +5,8 @@ import MusicCard from './MusicComponent';
 import Loading from '../../components/Loading';
 import getMusics from '../../services/musicsAPI';
 import { Isong, Iartist } from '../../interfaces';
-import styled from 'styled-components';
 import AlbumCard from '../AlbumList/AlbumCard';
-
-const AlbumWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding-top: 100px;
-  width: 99%;
-
-  h1 {
-    margin-bottom: 30px;
-  }
-`;
+import { AlbumWrapper } from '../../styles/AlbumStyles';
 
 
 type Props = WithRouterProps<{ id: string }>;
