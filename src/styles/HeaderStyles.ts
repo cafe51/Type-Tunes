@@ -6,7 +6,7 @@ interface PositionProps {
 }
 
 const baseLinkStyle = css`
-  color: yellow;
+  color: white;
   text-decoration: none;
 `;
 
@@ -67,6 +67,10 @@ const baseHamburgerStyle = css`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 20px;
+  svg {
+    pointer-events: none;
+  }
 `;
 
 export const NavLinksDesktop = styled.div`
@@ -79,12 +83,31 @@ export const NavLinksDesktop = styled.div`
 `;
 
 export const NavMenuMobile = styled.nav`
-  display: none;
-  position: absolute;
+  position: fixed;
+  font-size: 28px;
+  height: calc(100vh - 60px);
+  margin-top: 73px;
+  /* top: 73px; */
+  padding-top: 20px;
   right: 0;
-  top: 60px;
+  height: 100vh;
   width: 200px;
-  background: pink;
+  background: #25162E;
+  opacity: 0.9;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(${({ open }: { open: boolean }) => (open ? '0' : '100%')});
+
+  a {
+    margin-top: 20px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const Xbutton = styled.div`
+  ${baseHamburgerStyle}
 
   @media (min-width: 768px) {
     display: none;

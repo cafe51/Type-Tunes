@@ -17,6 +17,9 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
     isMenuOpen: false,
   };
 
+  menuRef: React.RefObject<HTMLDivElement> = React.createRef();
+
+
   componentDidMount() {
     this.setState({ loading: true },
       async () => {
@@ -28,10 +31,33 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
       });
   }
 
+  handleClickOutside = (event: any) => {
+    if (this.menuRef.current && !this.menuRef.current.contains(event.target)) {
+      this.setState({ isMenuOpen: false });
+      document.removeEventListener('click', this.handleClickOutside);
+      document.removeEventListener('touchmove', this.handleClickOutside);
+
+    }
+  };
+
   handleMenuClick = () => {
+    if (this.state.isMenuOpen) {
+      document.removeEventListener('click', this.handleClickOutside);
+      document.removeEventListener('touchmove', this.handleClickOutside);
+
+    }
+    
     this.setState(prevState => ({
       isMenuOpen: !prevState.isMenuOpen
-    }));
+    }), () => {
+      if (this.state.isMenuOpen) {
+        setTimeout(() => {
+          document.addEventListener('click', this.handleClickOutside);
+          document.addEventListener('touchmove', this.handleClickOutside);
+
+        }, 0);
+      }
+    });
   };
 
   render() {
@@ -71,7 +97,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
             </NavLink>
           </NavLinksDesktop>
         </HeaderSection>
-        <NavMenuMobile style={{ display: isMenuOpen ? 'block' : 'none' }}>
+        <NavMenuMobile open={isMenuOpen} ref={this.menuRef}>
           <NavLink to="/search">
           Search
           </NavLink>
