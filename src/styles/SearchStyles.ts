@@ -22,11 +22,23 @@ export const Input = styled.input`
   height: 46px;
   padding: 10px;
   font-size: 13px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 4px;
   text-align: center;
   background: rgba(200, 129, 248, 0.9);
   border-radius: 8px;
+  &:focus {
+    background: #82488D;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: #B250B0;
+    /* outline-color: rgba(200, 129, 248, 0.9); */
+
+  }
+  &::placeholder {
+    font-size: 16px;
+    color: #82488D;
+  }
 `;
 
 export const Button = styled.button`
