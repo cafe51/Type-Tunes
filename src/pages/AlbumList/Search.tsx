@@ -6,10 +6,7 @@ import SearchSection from './SearchSection';
 import { InsertEventInterface} from '../../interfaces';
 import styled from 'styled-components';
 import { SearchState } from '../../types';
-
-const SearchWrapper = styled.div`
-  padding-top: 100px;
-`;
+import { SearchWrapper } from '../../styles/SearchStyles';
 
 class Search extends React.Component {
   state: SearchState = {

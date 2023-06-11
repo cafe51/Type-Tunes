@@ -8,6 +8,10 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
   }
 
   h1 {
@@ -21,7 +25,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat';
     color: white;
     text-shadow: 0px 0px 10px #C881F8;
     background-color: green;
@@ -40,7 +43,6 @@ const GlobalStyle = createGlobalStyle`
       transform: rotate(359deg);
     }
   }
-  
 `;
 
 const root = ReactDOM.createRoot(

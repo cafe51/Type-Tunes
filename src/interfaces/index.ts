@@ -27,7 +27,7 @@ export interface Isong  {
   trackId: string,
   trackName: string,
   previewUrl: string,
-  // kind: string,
+
 }
 
 export interface InsertEventInterface {
