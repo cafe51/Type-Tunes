@@ -75,7 +75,6 @@ export const NavMenuMobile = styled.nav`
   font-size: 28px;
   height: calc(100vh - 60px);
   margin-top: 64px;
-  /* top: 73px; */
   padding-top: 20px;
   right: 0;
   height: 100vh;

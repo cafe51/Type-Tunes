@@ -1,10 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const ProfileWrapper = styled.div`
+const flexCenterColumn = css`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+`;
+
+export const ProfileWrapper = styled.div`
+  ${flexCenterColumn}
   padding: 100px 0;
   width: 100%;
 `;
@@ -18,10 +22,7 @@ export const PicturePortrait = styled.img`
 `;
 
 export const ProfileImage = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  ${flexCenterColumn}
 `;
 
 export const ProfilePicture = styled.img`
@@ -33,21 +34,15 @@ export const ProfilePicture = styled.img`
   box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 `;
 
-export const UserInfoMainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+const styledContainer = css`
+  ${flexCenterColumn}
   padding-bottom: 40px;
-  border-top-left-radius: 120px;
-  border-top-right-radius: 120px;
-  box-shadow: 2px 2px 8px #C881F8;
-  
+  text-align: center;
+  margin-top: 20px;
   margin-bottom: 40px;
   width: 80%;
+  box-shadow: 2px 2px 8px #C881F8;
 
-  margin-top: 20px;
-  text-align: center;
   h2 {
     margin-bottom: 5px;
   }
@@ -57,55 +52,29 @@ export const UserInfoMainContainer = styled.div`
   }
 `;
 
-export const UserFormMainContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 40px;
+export const UserInfoMainContainer = styled.div`
   border-top-left-radius: 120px;
   border-top-right-radius: 120px;
-  box-shadow: 2px 2px 8px #C881F8;
-  
-  margin-bottom: 40px;
-  width: 80%;
+  ${styledContainer}
 
-  margin-top: 20px;
-  text-align: center;
-  h2 {
-    margin-bottom: 5px;
-  }
-  p {
-    margin-bottom: 20px;
-    word-wrap: break-word;
-  }
+`;
+
+
+export const UserFormMainContainer = styled.form`
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
+  ${styledContainer}
 `;
 
 
 export const UserInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: 2px 2px 8px #C881F8;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  width: 80%;
   height: auto;
-  margin-top: 20px;
-  text-align: center;
-  h2 {
-    margin-bottom: 5px;
-  }
-  p {
-    margin-bottom: 20px;
-    word-wrap: break-word;
-  }
+  border-radius: 10px;
+  ${styledContainer}
 
   label {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     width: 80%;
   }
 

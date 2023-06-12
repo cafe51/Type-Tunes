@@ -56,6 +56,29 @@ export const GlobalStyle = createGlobalStyle`
   }
   }
 
+  input, textarea {
+  width: 100%;
+  height: 46px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  background: rgba(200, 129, 248, 0.9);
+  border-radius: 8px;
+  &:focus {
+    background: #82488D;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: #B250B0;
+
+  }
+  &::placeholder {
+    font-size: 16px;
+    color: #82488D;
+  }
+  }
+
   @keyframes rotation {
     from {
       transform: rotate(0deg);

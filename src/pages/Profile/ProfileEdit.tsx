@@ -8,7 +8,7 @@ import { ProfileEditState } from '../../types';
 import genericProfile from '../../pictures/generic-profile.jpg';
 import portrait from '../../pictures/image-border (copy) (1).png';
 import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserFormMainContainer, UserInfo } from '../../styles/ProfileStyles';
-import { Input } from '../../styles/SearchStyles';
+// import { Input } from '../../styles/SearchStyles';
 
 class ProfileEdit extends React.Component {
   state: ProfileEditState = {
@@ -87,7 +87,7 @@ class ProfileEdit extends React.Component {
           <label htmlFor="img">
             Escolha uma imagem que não necessariamente
             represente a sua imagem na realidade.
-            <Input
+            <input
               name="image"
               data-testid="edit-input-image"
               type="text"
@@ -101,7 +101,7 @@ class ProfileEdit extends React.Component {
           <h2>Nome</h2>
           <label htmlFor="name">
             Fique a vontade para usar o nome que você quiser
-            <Input
+            <input
               value={ name }
               data-testid="edit-input-name"
               type="text"
@@ -116,7 +116,7 @@ class ProfileEdit extends React.Component {
           <label htmlFor="email">
             {' '}
             Escolha seu email mais bonito
-            <Input
+            <input
               value={ email }
               data-testid="edit-input-email"
               type="text"

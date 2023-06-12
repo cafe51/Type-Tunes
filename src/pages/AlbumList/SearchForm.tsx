@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchFormProps } from '../../types';
-import { Form, Input, InputWrapper } from '../../styles/SearchStyles';
+import { Form, InputWrapper } from '../../styles/SearchStyles';
 
 
 export default class SearchForm extends React.Component<SearchFormProps> {
@@ -10,7 +10,7 @@ export default class SearchForm extends React.Component<SearchFormProps> {
       <Form>
         <InputWrapper>
           <label htmlFor="searchField">
-            <Input
+            <input
               data-testid="search-artist-input"
               name="artistNameInput"
               type="text"
