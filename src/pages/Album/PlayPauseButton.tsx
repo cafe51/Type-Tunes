@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa';
-// import { CustomButton } from '../../styles/MusicStyles';
+import { CustomButton } from '../../styles/MusicStyles';
 
 type PlayPauseButtonProps = {
   isPlaying: boolean,
@@ -11,9 +11,9 @@ class PlayPauseButton extends React.Component<PlayPauseButtonProps> {
   render() {
     const { isPlaying, handlePlayPause } = this.props;
     return (
-      <button onClick={handlePlayPause}>
+      <CustomButton onClick={handlePlayPause}>
         {isPlaying ? <FaPause /> : <FaPlay />}
-      </button>
+      </CustomButton>
     );
   }
 }
