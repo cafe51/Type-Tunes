@@ -106,4 +106,9 @@ export const TrackNameWrapper = styled.div`
 export const TrackName = styled.h4`
   position: relative;
   text-shadow: 0px 0px 10px #C881F8;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
