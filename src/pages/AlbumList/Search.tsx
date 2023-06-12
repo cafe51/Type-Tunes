@@ -29,13 +29,13 @@ class Search extends React.Component {
 
   handleScroll = () => {
     const { searchResult, albumsToShow } = this.state;
-
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-
-    this.setState({
-      albumsToShow: albumsToShow + 1,
-      displayedResult: searchResult.slice(0, albumsToShow + 1),
-    });
+  
+    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 5) {
+      this.setState({
+        albumsToShow: albumsToShow + 1,
+        displayedResult: searchResult.slice(0, albumsToShow + 1),
+      });
+    }
   };
 
 

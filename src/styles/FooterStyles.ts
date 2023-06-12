@@ -16,7 +16,7 @@ export const FooterWrap = styled.footer`
       #24162D 72.69%,
       #25162E 81.14%
     );
-  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.8);
 `;
 
 export const SocialMediaContainer = styled.div`

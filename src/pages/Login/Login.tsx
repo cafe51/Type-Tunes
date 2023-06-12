@@ -6,6 +6,7 @@ import { createUser } from '../../services/userAPI';
 import { InsertEventInterface } from '../../interfaces';
 import { LoginStateType } from '../../types';
 import styled, { css } from 'styled-components';
+import backgroundImage from '../../images/background-login.png';
 
 const LoginWrapper = styled.div`
   display: flex;
@@ -23,22 +24,31 @@ const flexCenterColumn = css`
 
 export const ProfileWrapper = styled.div`
   ${flexCenterColumn}
+  /* flex: 1 0 auto; */
+  margin-top: 20px;
   padding: 100px 0;
   width: 100%;
-  background-color: yellow;
   height: 100%;
   overflow: auto;
+
+  background-image: url(${backgroundImage});
+  background-position-y: 60px;
+  background-position-x: -20px;
+  background-repeat: no-repeat;
+  background-size: 120%;
 `;
 
-
-const styledContainer = css`
+export const UserFormMainContainer = styled.form`
   ${flexCenterColumn}
+  flex: 1 0 auto;
   padding-bottom: 40px;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  /* margin-top: 20px; */
+  margin-bottom: -100px;
   width: 90%;
-  box-shadow: 2px 2px 8px #C881F8;
+  /* background-color: yellow; */
+  /* height: 300px; */
+  /* box-shadow: 2px 2px 8px #C881F8; */
 
   h2 {
     margin-bottom: 5px;
@@ -47,20 +57,12 @@ const styledContainer = css`
     margin-bottom: 20px;
     word-wrap: break-word;
   }
-`;
-
-export const UserFormMainContainer = styled.form`
-  ${styledContainer}
-`;
-
-
-export const UserInfo = styled.div`
-  height: auto;
-  border-radius: 10px;
-  ${styledContainer}
 
   label {
     ${flexCenterColumn}
+    justify-content: space-around;
+    /* flex: 1 0 auto; */
+    height: 100%;
     gap: 16px;
     width: 80%;
   }
@@ -69,6 +71,24 @@ export const UserInfo = styled.div`
     margin-top: 16px;
   }
 `;
+
+
+/* export const UserInfo = styled.div`
+  height: 100%;
+  border-radius: 10px;
+  ${styledContainer}
+
+  label {
+    ${flexCenterColumn}
+    height: 100%;
+    gap: 16px;
+    width: 80%;
+  }
+
+  input, textarea {
+    margin-top: 16px;
+  }
+`; */
 
 
 
@@ -106,29 +126,29 @@ class Login extends React.Component {
         <LoginHeader/>
         <ProfileWrapper data-testid="page-login">
           <UserFormMainContainer>
-            <UserInfo>
-              <label htmlFor="nome">
-                <h2>Nome</h2>
-                <input
-                  data-testid="login-name-input"
-                  value={ name }
-                  name="name"
-                  type="text"
-                  id="name"
-                  onChange={ this.handleChange }
-                />
-                <button
-                  data-testid="login-submit-button"
-                  type="button"
-                  disabled={ disabled }
-                  onClick={ this.handleClick }
-                >
+
+            <label htmlFor="nome">
+              <input
+                data-testid="login-name-input"
+                placeholder='Seu Nome'
+                value={ name }
+                name="name"
+                type="text"
+                id="name"
+                onChange={ this.handleChange }
+              />
+              <button
+                data-testid="login-submit-button"
+                type="button"
+                disabled={ disabled }
+                onClick={ this.handleClick }
+              >
                 Entrar
-                </button>
-                {isLoading ? <Loading /> : ''}
-                {redirect ? <Navigate to="/search" /> : ''}
-              </label>
-            </UserInfo>
+              </button>
+              {isLoading ? <Loading /> : ''}
+              {redirect ? <Navigate to="/search" /> : ''}
+            </label>
+
           </UserFormMainContainer>
         </ProfileWrapper>
       </LoginWrapper>
