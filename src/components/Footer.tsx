@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { TbHexagonLetterJ } from 'react-icons/tb';
+
 
 const FooterWrap = styled.footer`
   display: flex;
@@ -20,6 +23,13 @@ const FooterWrap = styled.footer`
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.8);
 `;
 
+const SocialMediaContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+`;
+
 class Footer extends React.Component {
   render() {
     return (
@@ -29,20 +39,19 @@ class Footer extends React.Component {
             Desenvolvido por Japhé Nogueira
           </p>
         </div>
-        <div>
+        <SocialMediaContainer>
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-            GitHub
+            <FaGithub size={24} />
           </a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-            LinkedIn
+            <FaLinkedin size={24} />
           </a>
-          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-            Twitter
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <TbHexagonLetterJ size={28} />
           </a>
-        </div>
+        </SocialMediaContainer>
       </FooterWrap>
     );
   }
 }
-
 export default Footer;
