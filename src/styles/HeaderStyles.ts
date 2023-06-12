@@ -5,11 +5,6 @@ interface PositionProps {
   position: 'start' | 'center' | 'end';
 }
 
-// const baseLinkStyle = css`
-//   color: white;
-//   text-decoration: none;
-// `;
-
 export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
@@ -30,10 +25,6 @@ export const HeaderWrapper = styled.header`
   color: white;
   width: 100%;
   box-sizing: border-box;
-
-  /* a {
-   
-  } */
 `;
 
 
@@ -50,13 +41,10 @@ export const HeaderLogo = styled.h1`
 `;
 
 export const UserName = styled(Link)`
-  /* */
-  cursor: pointer;
   width: 50px;
 `;
 
 export const NavLink = styled(Link)`
-  /* */
   display: block;
   padding: 10px;
   text-align: center

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const ProfileWrapper = styled.div`
   display: flex;
@@ -86,9 +85,7 @@ export const UserFormMainContainer = styled.form`
 export const UserInfo = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-  /* gap: 10px; */
   border-radius: 10px;
   box-shadow: 2px 2px 8px #C881F8;
   margin-bottom: 40px;
@@ -116,11 +113,3 @@ export const UserInfo = styled.div`
     margin-top: 16px;
   }
 `;
-
-// export const EditLink = styled(Link)`
-//   padding: 10px 20px;
-//   background-color: #C881F8;
-//   color: white;
-//   text-decoration: none;
-//   border-radius: 5px;
-// `;
