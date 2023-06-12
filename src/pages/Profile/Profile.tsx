@@ -28,7 +28,6 @@ class Profile extends React.Component<Record<string, never>, ProfileState> {
       <div data-testid="page-profile">
         <Header />
         <ProfileWrapper>
-          <h1>Profile</h1>
           { !user
             ? <Loading />
             : 

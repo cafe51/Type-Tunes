@@ -8,6 +8,7 @@ interface PositionProps {
 export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
+  top: 0px;
   padding: 10px 30px 10px 20px;
   position: fixed;
   background: radial-gradient(

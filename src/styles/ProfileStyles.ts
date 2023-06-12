@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import backgroundProfile from '../images/violino.png';
 
 const flexCenterColumn = css`
   display: flex;
@@ -9,8 +10,17 @@ const flexCenterColumn = css`
 
 export const ProfileWrapper = styled.div`
   ${flexCenterColumn}
-  padding: 100px 0;
+  padding-top: 100px;
+  /* margin-top: 100px; */
+  /* padding: 100px 0; */
   width: 100%;
+  /* background-color: yellow; */
+  /* height: fit-content; */
+  /* background-image: url(${backgroundProfile}); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-position-y: 200px; */
+  /* background-position-x: -120px; */
 `;
 
 export const PicturePortrait = styled.img`
@@ -56,6 +66,7 @@ export const UserInfoMainContainer = styled.div`
   border-top-left-radius: 120px;
   border-top-right-radius: 120px;
   ${styledContainer}
+  /* background-color: green; */
 
 `;
 

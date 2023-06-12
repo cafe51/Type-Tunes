@@ -153,7 +153,6 @@ class ProfileEdit extends React.Component {
       <section>
         <Header />
         <ProfileWrapper data-testid="page-profile-edit">
-          <h1>ProfileEdit</h1>
           {formulario}
           { redirect ? <Navigate to="/profile" /> : '' }
         </ProfileWrapper>
