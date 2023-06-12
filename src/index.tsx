@@ -4,6 +4,18 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { GlobalStyle } from './styles/GlobalStyle';
+import Footer from './components/Footer';
+import styled from 'styled-components';
+
+const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const ContentWrapper = styled.div`
+  flex: 1 0 auto;
+`;
 
 
 const root = ReactDOM.createRoot(
@@ -13,7 +25,13 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyle />
-      <App />
+      <AppWrapper>
+        <ContentWrapper>
+          <App />
+        </ContentWrapper>
+        <Footer />
+      </AppWrapper>
+      
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -70,9 +70,9 @@ class Search extends React.Component {
     const { artistNameInput, isFormDisabled, searchedArtist, displayedResult, isLoading } = this.state;
   
     return (
-      <div data-testid="page-search">
+      <div>
         <Header />
-        <SearchWrapper>
+        <SearchWrapper data-testid="page-search">
           { isLoading 
             ? <Loading /> 
             : <SearchSection

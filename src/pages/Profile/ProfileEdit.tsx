@@ -10,14 +10,6 @@ import portrait from '../../pictures/image-border (copy) (1).png';
 import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserFormMainContainer, UserInfo } from '../../styles/ProfileStyles';
 import { Button, Input } from '../../styles/SearchStyles';
 
-// const ProfileEditWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   padding-top: 100px;
-//   width: 100%;
-//   word-wrap: break-word;
-// `;
-
 class ProfileEdit extends React.Component {
   state: ProfileEditState = {
     loading: true,

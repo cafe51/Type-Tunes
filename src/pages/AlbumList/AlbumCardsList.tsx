@@ -11,7 +11,9 @@ export default class AlbumCardsList extends React.Component<AlbumCardsListProps>
     const { displayedResult, notice }  = this.props;
     return (
       <AlbumCardsListWrapper>
-        <h2>{ notice }</h2>
+        <div>
+          <h2>{ notice }</h2>
+        </div>
         { displayedResult.length > 0
           ? (
             <SearchResultsWrapper>

@@ -20,6 +20,7 @@ export const AlbumWrapper = styled.div`
 export const AlbumCardsListWrapper = styled.div`
   ${flexCenterColumn}
   width: 100%;
+  height: 100%;
 
   h2 {
     margin-top: 40px;

@@ -23,12 +23,13 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     color: white;
     text-shadow: 0px 0px 10px #C881F8;
-    background-color: green;
     background: linear-gradient(90deg,
       #25162E 34.29%,
       #7F11B0 65.42%,
       #54008B 87.83%
       );
+    /* flex: 1; */
+
   }
 
   @keyframes rotation {
