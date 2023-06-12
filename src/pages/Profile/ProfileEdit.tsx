@@ -8,7 +8,7 @@ import { ProfileEditState } from '../../types';
 import genericProfile from '../../pictures/generic-profile.jpg';
 import portrait from '../../pictures/image-border (copy) (1).png';
 import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserFormMainContainer, UserInfo } from '../../styles/ProfileStyles';
-import { Button, Input } from '../../styles/SearchStyles';
+import { Input } from '../../styles/SearchStyles';
 
 class ProfileEdit extends React.Component {
   state: ProfileEditState = {
@@ -139,14 +139,14 @@ class ProfileEdit extends React.Component {
             />
           </label>
         </UserInfo>
-        <Button
+        <button
           data-testid="edit-button-save"
           type="button"
           disabled={ disabledButton }
           onClick={ this.handleClick }
         >
           Editar perfil
-        </Button>
+        </button>
       </UserFormMainContainer>
     );
     return (

@@ -28,8 +28,32 @@ export const GlobalStyle = createGlobalStyle`
       #7F11B0 65.42%,
       #54008B 87.83%
       );
-    /* flex: 1; */
+  }
 
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 80%;
+  background: #B250B0;
+  box-shadow: 0px 0px 4px #CE8DF2;
+  border-radius: 0px;
+  
+  &:disabled {
+    background-color: #CE8DF2;
+    cursor: not-allowed;
+  }
+
+  &:hover:enabled {
+    background-color: #B250B0;
+  }
   }
 
   @keyframes rotation {

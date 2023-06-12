@@ -8,7 +8,6 @@ export const ProfileWrapper = styled.div`
   align-items: center;
   padding: 100px 0;
   width: 100%;
-  /* flex: 1; */
 `;
 
 export const PicturePortrait = styled.img`
@@ -118,10 +117,10 @@ export const UserInfo = styled.div`
   }
 `;
 
-export const EditLink = styled(Link)`
-  padding: 10px 20px;
-  background-color: #C881F8;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-`;
+// export const EditLink = styled(Link)`
+//   padding: 10px 20px;
+//   background-color: #C881F8;
+//   color: white;
+//   text-decoration: none;
+//   border-radius: 5px;
+// `;

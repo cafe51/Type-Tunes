@@ -5,7 +5,8 @@ import Header from '../../components/Header';
 import { IdefaultUser } from '../../interfaces';
 import genericProfile from '../../pictures/generic-profile.jpg';
 import portrait from '../../pictures/image-border (copy) (1).png';
-import { EditLink, PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserInfo, UserInfoMainContainer } from '../../styles/ProfileStyles';
+import { Link } from 'react-router-dom';
+import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserInfo, UserInfoMainContainer } from '../../styles/ProfileStyles';
 
 type ProfileState = {
   user: IdefaultUser | null,
@@ -52,7 +53,7 @@ class Profile extends React.Component<Record<string, never>, ProfileState> {
                 <h2>Descrição</h2>
                 <h2>{user.description}</h2>
               </UserInfo>
-              <EditLink to="/profile/edit">Editar perfil</EditLink>
+              <button><Link to="/profile/edit">Editar perfil</Link></button>
             </UserInfoMainContainer>
           }
         </ProfileWrapper>

@@ -5,10 +5,10 @@ interface PositionProps {
   position: 'start' | 'center' | 'end';
 }
 
-const baseLinkStyle = css`
-  color: white;
-  text-decoration: none;
-`;
+// const baseLinkStyle = css`
+//   color: white;
+//   text-decoration: none;
+// `;
 
 export const HeaderWrapper = styled.header`
   display: flex;
@@ -31,9 +31,9 @@ export const HeaderWrapper = styled.header`
   width: 100%;
   box-sizing: border-box;
 
-  a {
-    ${baseLinkStyle}
-  }
+  /* a {
+   
+  } */
 `;
 
 
@@ -50,13 +50,13 @@ export const HeaderLogo = styled.h1`
 `;
 
 export const UserName = styled(Link)`
-  ${baseLinkStyle}
+  /* */
   cursor: pointer;
   width: 50px;
 `;
 
 export const NavLink = styled(Link)`
-  ${baseLinkStyle}
+  /* */
   display: block;
   padding: 10px;
   text-align: center

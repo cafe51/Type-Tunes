@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchFormProps } from '../../types';
-import { Button, Form, Input, InputWrapper } from '../../styles/SearchStyles';
+import { Form, Input, InputWrapper } from '../../styles/SearchStyles';
 
 
 export default class SearchForm extends React.Component<SearchFormProps> {
@@ -21,14 +21,14 @@ export default class SearchForm extends React.Component<SearchFormProps> {
             />
           </label>
         </InputWrapper>
-        <Button
+        <button
           data-testid="search-artist-button"
           type="button"
           disabled={ disabled }
           onClick={ handleClick }
         >
           Procurar
-        </Button>
+        </button>
       </Form>
     );
   }
