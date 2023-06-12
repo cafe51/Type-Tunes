@@ -24,7 +24,6 @@ const flexCenterColumn = css`
 
 export const ProfileWrapper = styled.div`
   ${flexCenterColumn}
-  /* flex: 1 0 auto; */
   margin-top: 20px;
   padding: 100px 0;
   width: 100%;
@@ -43,12 +42,8 @@ export const UserFormMainContainer = styled.form`
   flex: 1 0 auto;
   padding-bottom: 40px;
   text-align: center;
-  /* margin-top: 20px; */
   margin-bottom: -100px;
   width: 90%;
-  /* background-color: yellow; */
-  /* height: 300px; */
-  /* box-shadow: 2px 2px 8px #C881F8; */
 
   h2 {
     margin-bottom: 5px;
@@ -61,7 +56,6 @@ export const UserFormMainContainer = styled.form`
   label {
     ${flexCenterColumn}
     justify-content: space-around;
-    /* flex: 1 0 auto; */
     height: 100%;
     gap: 16px;
     width: 80%;
@@ -71,25 +65,6 @@ export const UserFormMainContainer = styled.form`
     margin-top: 16px;
   }
 `;
-
-
-/* export const UserInfo = styled.div`
-  height: 100%;
-  border-radius: 10px;
-  ${styledContainer}
-
-  label {
-    ${flexCenterColumn}
-    height: 100%;
-    gap: 16px;
-    width: 80%;
-  }
-
-  input, textarea {
-    margin-top: 16px;
-  }
-`; */
-
 
 
 class Login extends React.Component {
