@@ -5,15 +5,18 @@ import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import { IdefaultUser } from '../../interfaces';
 import { ProfileEditState } from '../../types';
-import styled from 'styled-components';
+import genericProfile from '../../pictures/generic-profile.jpg';
+import portrait from '../../pictures/image-border (copy) (1).png';
+import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserFormMainContainer, UserInfo } from '../../styles/ProfileStyles';
+import { Button, Input } from '../../styles/SearchStyles';
 
-const ProfileEditWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 100px;
-  width: 100%;
-  word-wrap: break-word;
-`;
+// const ProfileEditWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding-top: 100px;
+//   width: 100%;
+//   word-wrap: break-word;
+// `;
 
 class ProfileEdit extends React.Component {
   state: ProfileEditState = {
@@ -78,15 +81,21 @@ class ProfileEdit extends React.Component {
     } = this.state;
     const formulario = loading ? <Loading /> : (
 
-      <form>
-        <div>
-          <h3>Foto</h3>
-          <img alt="imagem" src={ image } />
+      <UserFormMainContainer>
+        <ProfileImage>
+          <PicturePortrait alt="User avatar portrait" src={portrait} />
+          {
+            !image || image.length == 0
+              ? <ProfilePicture data-testid="profile-image" alt="User avatar" src={genericProfile} />
+              : <ProfilePicture data-testid="profile-image" alt="User avatar" src={image} />
+          }
+        </ProfileImage>
+        <UserInfo>
+          <h2>Sua Foto</h2>
           <label htmlFor="img">
-            {' '}
             Escolha uma imagem que não necessariamente
             represente a sua imagem na realidade.
-            <input
+            <Input
               name="image"
               data-testid="edit-input-image"
               type="text"
@@ -95,13 +104,12 @@ class ProfileEdit extends React.Component {
               onChange={ this.handleChange }
             />
           </label>
-        </div>
-        <div>
-          <h3>Nome</h3>
+        </UserInfo>
+        <UserInfo>
+          <h2>Nome</h2>
           <label htmlFor="name">
-            {' '}
             Fique a vontade para usar o nome que você quiser
-            <input
+            <Input
               value={ name }
               data-testid="edit-input-name"
               type="text"
@@ -110,13 +118,13 @@ class ProfileEdit extends React.Component {
               name="name"
             />
           </label>
-        </div>
-        <div>
-          <h3>Email</h3>
+        </UserInfo>
+        <UserInfo>
+          <h2>Email</h2>
           <label htmlFor="email">
             {' '}
             Escolha seu email mais bonito
-            <input
+            <Input
               value={ email }
               data-testid="edit-input-email"
               type="text"
@@ -125,11 +133,10 @@ class ProfileEdit extends React.Component {
               name="email"
             />
           </label>
-        </div>
-        <div>
-          <h3>Descrição</h3>
+        </UserInfo>
+        <UserInfo>
+          <h2>Descrição</h2>
           <label htmlFor="description">
-            {' '}
             Descreva-se da forma como você quiser
             <textarea
               value={ description }
@@ -139,25 +146,25 @@ class ProfileEdit extends React.Component {
               name="description"
             />
           </label>
-        </div>
-        <button
+        </UserInfo>
+        <Button
           data-testid="edit-button-save"
           type="button"
           disabled={ disabledButton }
           onClick={ this.handleClick }
         >
           Editar perfil
-        </button>
-      </form>
+        </Button>
+      </UserFormMainContainer>
     );
     return (
       <section>
         <Header />
-        <ProfileEditWrapper data-testid="page-profile-edit">
-        ProfileEdit
+        <ProfileWrapper data-testid="page-profile-edit">
+          <h1>ProfileEdit</h1>
           {formulario}
           { redirect ? <Navigate to="/profile" /> : '' }
-        </ProfileEditWrapper>
+        </ProfileWrapper>
       </section>
     );
   }

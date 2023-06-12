@@ -47,7 +47,7 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%;
+  width: 80%;
   background: #B250B0;
   box-shadow: 0px 0px 4px #CE8DF2;
   border-radius: 0px;
