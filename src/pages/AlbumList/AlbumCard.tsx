@@ -23,10 +23,10 @@ export default class AlbumCard extends React.Component<AlbumCardProps> {
         >
           <div>
             <img alt={ collectionName } src={ artworkUrl100 } />
-            <h3 data-testid="album-name">{collectionName}</h3>
-            <h4>$ { collectionPrice }</h4>
           </div>
         </Link>
+        <h3 data-testid="album-name">{collectionName}</h3>
+        <h4>$ { collectionPrice }</h4>
       </AlbumCardWrapper>
     );
   }

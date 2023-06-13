@@ -3,7 +3,7 @@ import AlbumCard from './AlbumCard';
 import { AlbumCardsListProps } from '../../types';
 import { IAlbumData } from '../../interfaces';
 import { AlbumCardsListWrapper, SearchResultsWrapper } from '../../styles/AlbumStyles';
-import { BackGroundImage } from '../../styles/SearchStyles';
+import { BackGroundImage, BackGroundImageOnlyMobile } from '../../styles/SearchStyles';
 
 
 export default class AlbumCardsList extends React.Component<AlbumCardsListProps> {
@@ -21,7 +21,7 @@ export default class AlbumCardsList extends React.Component<AlbumCardsListProps>
               {displayedResult.map(
                 (albumData: IAlbumData) => <AlbumCard albumData={ albumData } key={ albumData.collectionId }/>,
               )}
-              <BackGroundImage />
+              <BackGroundImageOnlyMobile />
             </SearchResultsWrapper>
           )
           : <BackGroundImage /> }

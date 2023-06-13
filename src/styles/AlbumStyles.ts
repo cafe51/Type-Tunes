@@ -21,8 +21,6 @@ export const AlbumWrapper = styled.div`
 export const AlbumCardsListWrapper = styled.div`
   ${flexCenterColumn}
   width: 100%;
-  height: 100%;
-  /* background-color: yellow; */
   justify-content: space-around;
 
   h2 {
@@ -33,6 +31,8 @@ export const AlbumCardsListWrapper = styled.div`
   }
 
   @media (min-width: 768px) {
+    /* width: 50%; */
+    /* height: 100%; */
     /* margin: 30%; */
     /* width: 40%; */
     /* background-color: yellow; */
@@ -43,20 +43,24 @@ export const SearchResultsWrapper = styled.div`
   ${flexCenterColumn}
   width: 99%;
 
-  /* @media (min-width: 768px) {
-    margin: 30%;
-    width: 40%;
-  } */
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 `;
 
 
 
 export const AlbumCardWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   border-radius: 10px;
   box-shadow: 2px 2px 8px #C881F8;
   margin-bottom: 40px;
   width: 80%;
-
+  
   img {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -66,5 +70,13 @@ export const AlbumCardWrapper = styled.div`
 
   a {
     text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+    width: 30%;
+    height: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;

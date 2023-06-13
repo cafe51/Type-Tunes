@@ -16,10 +16,24 @@ export const SearchWrapper = styled.div`
   padding-top: 100px;
   height: 100%;
   @media (min-width: 768px) {
-    /* margin: 30%; */
-    /* background-color: green; */
     padding-top: 50px;
-    /* width: 40%; */
+  }
+`;
+
+export const SearchFormWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        #54008B 20.29%,
+        #7F11B0 50.42%,
+        #25162E 95.83%
+        );
   }
 `;
 
@@ -31,24 +45,14 @@ export const Form = styled.form`
   margin: auto;
 
   @media (min-width: 768px) {
-    /* margin: 30%; */
-    /* background-color: yellow; */
-    background: linear-gradient(
-      90deg,
-      #54008B 20.29%,
-      #7F11B0 50.42%,
-      #25162E 95.83%
-      );
+    position: fixed;
+    width: fit-content;
     justify-content: center;
-    height: 100%;
-    width: 40%;
+    height: 450px;
     
   }
 `;
 
-// #25162E 34.29%,
-// #7F11B0 65.42%,
-// #54008B 87.83%
 
 export const InputWrapper = styled.div`
   width: 80%;
@@ -84,3 +88,16 @@ export const BackGroundImage = styled.div`
   }
 `;
 
+export const BackGroundImageOnlyMobile = styled.div`
+  width: 100%;
+  height: 200px;
+  background-image: url(${backgroundSerchScreen});
+  background-repeat: no-repeat;
+  background-size: 120%;
+  border-top: 4px ridge #e4bcff;
+  box-shadow: 1px 1px 20px #e4bcff;
+
+  @media (min-width: 768px) {
+    width: 90%;
+  }
+`;
