@@ -15,7 +15,7 @@ class Search extends React.Component {
     isLoading: false,
     searchResult: [],
     displayedResult: [], 
-    albumsToShow: 2,
+    albumsToShow: window.innerWidth > 768 ? 6 : 2,
     notice: 'Pesquise uma banda ou artista',
     isLoadingMore: false
   };
@@ -31,13 +31,13 @@ class Search extends React.Component {
   handleScroll = () => {
     const { searchResult, albumsToShow } = this.state;
 
-    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 5) {
+    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight * 0.75) {
       this.setState({
         isLoadingMore: true,
       }, () => {
         this.setState({
-          albumsToShow: albumsToShow + 1,
-          displayedResult: searchResult.slice(0, albumsToShow + 1),
+          albumsToShow: albumsToShow + (window.innerWidth > 768 ? 3 : 1),
+          displayedResult: searchResult.slice(0, albumsToShow + (window.innerWidth > 768 ? 3 : 1)),
           isLoadingMore: false,
         });
       });

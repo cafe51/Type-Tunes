@@ -8,6 +8,22 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     line-height: 120%;
     color: white;
+    scrollbar-width: thick;
+    scrollbar-color: pink transparent;
+  }
+
+  *::-webkit-scrollbar {
+  width: 12px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background-color: #C881F8;
+  }
+
+  *::-webkit-scrollbar-thumb {
+  background-color: #410B67;
+  border-radius: 20px;
+  border: 3px solid transparent;
   }
 
   h1 {
