@@ -134,12 +134,7 @@ export const UserInfoMainContainer = styled.div`
     flex-direction: row;
     height: 100%;
 
-    background: linear-gradient(
-      90deg,
-      #54008B 95.83%,
-      #7F11B0 50.42%,
-      #25162E 20.29%
-      );
+
       
     border-radius: 0px;
   }
@@ -175,7 +170,7 @@ export const UseInfoContainer = styled.div`
       90deg,
       #54008B 95.83%,
       #7F11B0 50.42%,
-      #25162E 20.29%
+      #54008B 95.83%
       );
   }
 `;
