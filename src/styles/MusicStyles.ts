@@ -25,6 +25,12 @@ export const ButtonAndCheckFavorite = styled.div`
   border-radius: 50px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
   padding: 10px;
+
+  @media (min-width: 768px) {
+    width: 30%;
+    align-self: center;
+    /* background-color: yellow; */
+  }
 `;
 
 export const ListWrapper = styled.div`
