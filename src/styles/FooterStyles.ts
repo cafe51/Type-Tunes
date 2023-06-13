@@ -6,7 +6,7 @@ export const FooterWrap = styled.footer`
   color: white;
   text-align: center;
   width: 100%;
-  padding-bottom: 20px;
+  padding: 0px 30px 10px 20px;
   background: radial-gradient(
       89.23% 1958.28% at 95.38% 49.55%,
       #56008D 2.32%,
@@ -17,6 +17,10 @@ export const FooterWrap = styled.footer`
       #25162E 81.14%
     );
   box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.8);
+
+  p {
+    margin: 8px;
+  }
 `;
 
 export const SocialMediaContainer = styled.div`

@@ -8,20 +8,18 @@ class Footer extends React.Component {
   render() {
     return (
       <FooterWrap>
-        <div>
-          <p className="mb-4">
-            Desenvolvido por Japhé Nogueira
-          </p>
-        </div>
+        <p className="mb-4">
+          Desenvolvido por Japhé Nogueira
+        </p>
         <SocialMediaContainer>
           <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-            <FaGithub size={24} />
+            <FaGithub size={16} />
           </a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin size={24} />
+            <FaLinkedin size={16} />
           </a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-            <TbHexagonLetterJ size={28} />
+            <TbHexagonLetterJ size={20} />
           </a>
         </SocialMediaContainer>
       </FooterWrap>
