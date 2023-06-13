@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   top: 0px;
-  padding: 10px 30px 10px 20px;
+  padding: 5px 30px 5px 20px;
   position: fixed;
   background: radial-gradient(
       89.23% 1958.28% at 95.38% 49.55%,
@@ -43,6 +43,7 @@ export const HeaderLogo = styled.h1`
 
 export const UserName = styled(Link)`
   width: 50px;
+  text-align: center;
 `;
 
 export const NavLink = styled(Link)`
