@@ -32,9 +32,23 @@ export const Form = styled.form`
 
   @media (min-width: 768px) {
     /* margin: 30%; */
+    /* background-color: yellow; */
+    background: linear-gradient(
+      90deg,
+      #54008B 20.29%,
+      #7F11B0 50.42%,
+      #25162E 95.83%
+      );
+    justify-content: center;
+    height: 100%;
     width: 40%;
+    
   }
 `;
+
+// #25162E 34.29%,
+// #7F11B0 65.42%,
+// #54008B 87.83%
 
 export const InputWrapper = styled.div`
   width: 80%;
