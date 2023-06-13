@@ -8,7 +8,7 @@ import { SearchState } from '../../types';
 import { SearchWrapper, SearchWrapperMain } from '../../styles/SearchStyles';
 
 class Search extends React.Component {
-  state: SearchState = {
+  state: any = {
     isFormDisabled: true,
     artistNameInput: '',
     searchedArtist: '',
@@ -17,6 +17,7 @@ class Search extends React.Component {
     displayedResult: [], 
     albumsToShow: 2,
     notice: 'Pesquise uma banda ou artista',
+    isLoadingMore: false
   };
   
   componentDidMount() {
@@ -29,11 +30,16 @@ class Search extends React.Component {
 
   handleScroll = () => {
     const { searchResult, albumsToShow } = this.state;
-  
+
     if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 5) {
       this.setState({
-        albumsToShow: albumsToShow + 1,
-        displayedResult: searchResult.slice(0, albumsToShow + 1),
+        isLoadingMore: true,
+      }, () => {
+        this.setState({
+          albumsToShow: albumsToShow + 1,
+          displayedResult: searchResult.slice(0, albumsToShow + 1),
+          isLoadingMore: false,
+        });
       });
     }
   };
@@ -67,7 +73,7 @@ class Search extends React.Component {
 
 
   render() {
-    const { artistNameInput, isFormDisabled, searchedArtist, displayedResult, isLoading } = this.state;
+    const { artistNameInput, isFormDisabled, searchedArtist, displayedResult, isLoading, isLoadingMore } = this.state;
   
     return (
       <SearchWrapperMain>
@@ -82,6 +88,7 @@ class Search extends React.Component {
               fetchArtistAlbums={this.fetchArtistAlbums}
               displayedResult={displayedResult}
               searchedArtist={searchedArtist}
+              isLoadingMore={isLoadingMore}
             /> 
           }
         </SearchWrapper>

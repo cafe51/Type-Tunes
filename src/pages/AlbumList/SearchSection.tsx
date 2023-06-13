@@ -3,13 +3,14 @@ import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import { SearchSectionProps } from '../../types';
 import { SearchSectionWrapper, SearchFormWrapper } from '../../styles/SearchStyles';
+import Loading from '../../components/Loading';
 
 
 
 
-class SearchSection extends React.Component<SearchSectionProps> {
+class SearchSection extends React.Component<any> {
   render() {
-    const { artistNameInput, isFormDisabled, handleInputChange, fetchArtistAlbums, displayedResult, searchedArtist } = this.props;
+    const { artistNameInput, isFormDisabled, handleInputChange, fetchArtistAlbums, displayedResult, searchedArtist, isLoadingMore } = this.props;
   
     return (
       <SearchSectionWrapper>
@@ -25,6 +26,7 @@ class SearchSection extends React.Component<SearchSectionProps> {
           displayedResult={displayedResult}
           searchedArtist={searchedArtist}
         />
+        {isLoadingMore && <Loading />}
       </SearchSectionWrapper>
     );
   }
