@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import SearchSection from './SearchSection';
 import { InsertEventInterface} from '../../interfaces';
 import { SearchState } from '../../types';
-import { SearchWrapper } from '../../styles/SearchStyles';
+import { SearchWrapper, SearchWrapperMain } from '../../styles/SearchStyles';
 
 class Search extends React.Component {
   state: SearchState = {
@@ -70,7 +70,7 @@ class Search extends React.Component {
     const { artistNameInput, isFormDisabled, searchedArtist, displayedResult, isLoading } = this.state;
   
     return (
-      <div>
+      <SearchWrapperMain>
         <Header />
         <SearchWrapper data-testid="page-search">
           { isLoading 
@@ -85,7 +85,7 @@ class Search extends React.Component {
             /> 
           }
         </SearchWrapper>
-      </div>
+      </SearchWrapperMain>
     );
   }
   

@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
+export const SearchWrapperMain = styled.div`
+  height: 100%;
+`;
+
 export const SearchWrapper = styled.div`
   padding-top: 100px;
+  height: 100%;
 `;
 
 export const Form = styled.form`
