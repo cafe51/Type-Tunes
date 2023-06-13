@@ -7,12 +7,12 @@ class SearchResults extends React.Component<SearchResultProps> {
     const { displayedResult, searchedArtist } = this.props;
 
     return (
-      <div>
-        <AlbumCardsList
-          displayedResult={displayedResult}
-          notice={displayedResult.length > 0 ? `Resultado de álbuns de: ${searchedArtist}` : 'Nenhum álbum foi encontrado'}
-        />
-      </div>
+      <AlbumCardsList
+        displayedResult={displayedResult}
+        notice={displayedResult.length > 0
+          ? `Resultado de álbuns de: ${searchedArtist}`
+          : 'Nenhum álbum foi encontrado'}
+      />
     );
   }
 }

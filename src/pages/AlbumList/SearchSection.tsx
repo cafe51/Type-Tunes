@@ -2,7 +2,7 @@ import React from 'react';
 import SearchForm from './SearchForm';
 import SearchResults from './SearchResults';
 import { SearchSectionProps } from '../../types';
-import { BackGroundImage, SearchSectionWrapper, SearchSectionFormAndResults } from '../../styles/SearchStyles';
+import { SearchSectionWrapper } from '../../styles/SearchStyles';
 
 
 
@@ -13,19 +13,16 @@ class SearchSection extends React.Component<SearchSectionProps> {
   
     return (
       <SearchSectionWrapper>
-        <SearchSectionFormAndResults>
-          <SearchForm
-            artistNameInput={artistNameInput}
-            handleChange={handleInputChange}
-            handleClick={fetchArtistAlbums}
-            disabled={isFormDisabled}
-          />
-          <SearchResults
-            displayedResult={displayedResult}
-            searchedArtist={searchedArtist}
-          />
-        </SearchSectionFormAndResults>
-        <BackGroundImage />
+        <SearchForm
+          artistNameInput={artistNameInput}
+          handleChange={handleInputChange}
+          handleClick={fetchArtistAlbums}
+          disabled={isFormDisabled}
+        />
+        <SearchResults
+          displayedResult={displayedResult}
+          searchedArtist={searchedArtist}
+        />
       </SearchSectionWrapper>
     );
   }

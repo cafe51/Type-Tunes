@@ -3,19 +3,23 @@ import backgroundSerchScreen from '../images/searchBackground.png';
 
 export const SearchWrapperMain = styled.div`
   height: 100%;
+
+  @media (min-width: 768px) {
+    /* margin: 30%; */
+    /* background-color: green; */
+    /* padding-top: -100px; */
+    /* width: 40%; */
+  }
 `;
 
 export const SearchWrapper = styled.div`
   padding-top: 100px;
   height: 100%;
-`;
-
-export const SearchSectionFormAndResults = styled.div`
-    @media (min-width: 768px) {
-      display: flex;
-      flex-direction: column;
-      justify-items: center;
-      align-items: center;
+  @media (min-width: 768px) {
+    /* margin: 30%; */
+    /* background-color: green; */
+    padding-top: 50px;
+    /* width: 40%; */
   }
 `;
 
@@ -27,7 +31,8 @@ export const Form = styled.form`
   margin: auto;
 
   @media (min-width: 768px) {
-    margin: 30%;
+    /* margin: 30%; */
+    width: 40%;
   }
 `;
 
@@ -59,7 +64,7 @@ export const BackGroundImage = styled.div`
   box-shadow: 1px 1px 20px #e4bcff;
 
   @media (min-width: 768px) {
-    width: 50%;
+    width: 90%;
     height: 90%;
     background-size: cover;
   }

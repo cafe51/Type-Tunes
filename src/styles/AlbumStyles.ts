@@ -15,12 +15,15 @@ export const AlbumWrapper = styled.div`
   h1 {
     margin-bottom: 30px;
   }
+  
 `;
 
 export const AlbumCardsListWrapper = styled.div`
   ${flexCenterColumn}
   width: 100%;
   height: 100%;
+  /* background-color: yellow; */
+  justify-content: space-around;
 
   h2 {
     margin-top: 40px;
@@ -28,11 +31,22 @@ export const AlbumCardsListWrapper = styled.div`
     text-shadow: 0px 4px 4px #000000;
     font-size: 20px;
   }
+
+  @media (min-width: 768px) {
+    /* margin: 30%; */
+    /* width: 40%; */
+    /* background-color: yellow; */
+  }
 `;
 
 export const SearchResultsWrapper = styled.div`
   ${flexCenterColumn}
   width: 99%;
+
+  /* @media (min-width: 768px) {
+    margin: 30%;
+    width: 40%;
+  } */
 `;
 
 
