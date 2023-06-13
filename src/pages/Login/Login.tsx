@@ -5,7 +5,7 @@ import Loading from '../../components/Loading';
 import { createUser } from '../../services/userAPI';
 import { InsertEventInterface } from '../../interfaces';
 import { LoginStateType } from '../../types';
-import { LoginWrapper, ProfileWrapper, UserFormMainContainer } from '../../styles/LoginStyles';
+import { BackGroundImageLogin, LoginWrapper, ProfileWrapper, UserFormMainContainer } from '../../styles/LoginStyles';
 
 
 class Login extends React.Component {
@@ -41,6 +41,7 @@ class Login extends React.Component {
       <LoginWrapper>
         <LoginHeader/>
         <ProfileWrapper data-testid="page-login">
+          <BackGroundImageLogin />
           <UserFormMainContainer>
 
             <label htmlFor="nome">

@@ -5,8 +5,8 @@ import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import { IdefaultUser } from '../../interfaces';
 import { ProfileEditState } from '../../types';
-import genericProfile from '../../pictures/generic-profile.jpg';
-import portrait from '../../pictures/image-border (copy) (1).png';
+import genericProfile from '../../images/generic-profile.jpg';
+import portrait from '../../images/image-border (copy) (1).png';
 import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserFormMainContainer, UserInfoWithInput, Title, NameAndEmailContainer, DescriptionAndButtonContainer, ProfileWrapperMain, ProfileImageContainer, UseInfoContainer, UserDescriptionInfo, Input, UserInfoImageWithInput, UserDescriptionFormInfo } from '../../styles/ProfileStyles';
 
 class ProfileEdit extends React.Component {

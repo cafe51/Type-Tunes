@@ -3,8 +3,8 @@ import { getUser } from '../../services/userAPI';
 import Loading from '../../components/Loading';
 import Header from '../../components/Header';
 import { IdefaultUser } from '../../interfaces';
-import genericProfile from '../../pictures/generic-profile.jpg';
-import portrait from '../../pictures/image-border (copy) (1).png';
+import genericProfile from '../../images/generic-profile.jpg';
+import portrait from '../../images/image-border (copy) (1).png';
 import { Link } from 'react-router-dom';
 import {
   PicturePortrait,

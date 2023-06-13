@@ -42,7 +42,6 @@ export const PicturePortrait = styled.img`
   }
 `;
 
-
 export const ProfileImageContainer = styled.div`
   ${flexCenterColumn}
 

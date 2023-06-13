@@ -5,10 +5,6 @@ export const SearchWrapperMain = styled.section`
   height: 100%;
 
   @media (min-width: 768px) {
-    /* margin: 30%; */
-    /* background-color: green; */
-    /* padding-top: -100px; */
-    /* width: 40%; */
   }
 `;
 
