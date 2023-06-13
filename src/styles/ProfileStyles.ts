@@ -11,16 +11,16 @@ const flexCenterColumn = css`
 export const ProfileWrapper = styled.div`
   ${flexCenterColumn}
   padding-top: 100px;
-  /* margin-top: 100px; */
-  /* padding: 100px 0; */
   width: 100%;
-  /* background-color: yellow; */
-  /* height: fit-content; */
-  /* background-image: url(${backgroundProfile}); */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  /* background-position-y: 200px; */
-  /* background-position-x: -120px; */
+  height: fit-content;
+  background-image: url(${backgroundProfile});
+  background-repeat: no-repeat;
+  /* background-size: 230%; */
+  /* background-position-y: 80px; */
+  /* background-position-x: -150px; */
+  background-size: 330%;
+  background-position-y: 80px;
+  background-position-x: -350px;
 `;
 
 export const PicturePortrait = styled.img`
@@ -51,7 +51,7 @@ const styledContainer = css`
   margin-top: 20px;
   margin-bottom: 40px;
   width: 80%;
-  box-shadow: 2px 2px 8px #C881F8;
+  /* box-shadow: 2px 2px 8px #C881F8; */
 
   h2 {
     margin-bottom: 5px;
@@ -66,6 +66,7 @@ export const UserInfoMainContainer = styled.div`
   border-top-left-radius: 120px;
   border-top-right-radius: 120px;
   ${styledContainer}
+  
   /* background-color: green; */
 
 `;
@@ -81,6 +82,7 @@ export const UserFormMainContainer = styled.form`
 export const UserInfo = styled.div`
   height: auto;
   border-radius: 10px;
+  background: rgba(200, 129, 248, 0.9);
   ${styledContainer}
 
   label {
@@ -91,5 +93,20 @@ export const UserInfo = styled.div`
 
   input, textarea {
     margin-top: 16px;
+    background: white;
+    color: #82488D;
+    border-radius: 8px;
+    &:focus {
+      background: #82488D;
+      outline-style: solid;
+      outline-width: 2px;
+      outline-color: #B250B0;
+      color: white;
+
+    }
+    &::placeholder {
+      font-size: 16px;
+      color: #82488D;
+  }
   }
 `;
