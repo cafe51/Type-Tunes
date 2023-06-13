@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import backgroundSerchScreen from '../images/searchBackground.png';
 
-export const SearchWrapperMain = styled.div`
+export const SearchWrapperMain = styled.section`
   height: 100%;
 
   @media (min-width: 768px) {

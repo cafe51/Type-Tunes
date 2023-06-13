@@ -7,7 +7,7 @@ import { IdefaultUser } from '../../interfaces';
 import { ProfileEditState } from '../../types';
 import genericProfile from '../../pictures/generic-profile.jpg';
 import portrait from '../../pictures/image-border (copy) (1).png';
-import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserFormMainContainer, UserInfo } from '../../styles/ProfileStyles';
+import { PicturePortrait, ProfileImage, ProfilePicture, ProfileWrapper, UserFormMainContainer, UserInfo, UserInfoMainContainer, Title, NameAndEmailContainer, DescriptionAndButtonContainer, ProfileWrapperMain, ProfileImageContainer, UseInfoContainer } from '../../styles/ProfileStyles';
 // import { Input } from '../../styles/SearchStyles';
 
 class ProfileEdit extends React.Component {
@@ -74,88 +74,101 @@ class ProfileEdit extends React.Component {
     const formulario = loading ? <Loading /> : (
 
       <UserFormMainContainer>
-        <ProfileImage>
-          <PicturePortrait alt="User avatar portrait" src={portrait} />
-          {
-            !image || image.length == 0
-              ? <ProfilePicture data-testid="profile-image" alt="User avatar" src={genericProfile} />
-              : <ProfilePicture data-testid="profile-image" alt="User avatar" src={image} />
-          }
-        </ProfileImage>
-        <UserInfo>
-          <h2>Sua Foto</h2>
-          <label htmlFor="img">
+        <UserInfoMainContainer>
+          <ProfileImageContainer>
+            <ProfileImage>
+              <PicturePortrait alt="User avatar portrait" src={portrait} />
+              {
+                !image || image.length == 0
+                  ? <ProfilePicture data-testid="profile-image" alt="User avatar" src={genericProfile} />
+                  : <ProfilePicture data-testid="profile-image" alt="User avatar" src={image} />
+              }
+            </ProfileImage>
+            <UserInfo>
+              <h2>Sua Foto</h2>
+              <label htmlFor="img">
             Escolha uma imagem que não necessariamente
             represente a sua imagem na realidade.
-            <input
-              name="image"
-              data-testid="edit-input-image"
-              type="text"
-              id="img"
-              value={ image }
-              onChange={ this.handleChange }
-            />
-          </label>
-        </UserInfo>
-        <UserInfo>
-          <h2>Nome</h2>
-          <label htmlFor="name">
-            Fique a vontade para usar o nome que você quiser
-            <input
-              value={ name }
-              data-testid="edit-input-name"
-              type="text"
-              id="name"
-              onChange={ this.handleChange }
-              name="name"
-            />
-          </label>
-        </UserInfo>
-        <UserInfo>
-          <h2>Email</h2>
-          <label htmlFor="email">
-            {' '}
-            Escolha seu email mais bonito
-            <input
-              value={ email }
-              data-testid="edit-input-email"
-              type="text"
-              id="email"
-              onChange={ this.handleChange }
-              name="email"
-            />
-          </label>
-        </UserInfo>
-        <UserInfo>
-          <h2>Descrição</h2>
-          <label htmlFor="description">
-            Descreva-se da forma como você quiser
-            <textarea
-              value={ description }
-              data-testid="edit-input-description"
-              id="description"
-              onChange={ this.handleChange }
-              name="description"
-            />
-          </label>
-        </UserInfo>
-        <button
-          data-testid="edit-button-save"
-          type="button"
-          disabled={ disabledButton }
-          onClick={ this.handleClick }
-        >
-          Editar perfil
-        </button>
+                <input
+                  name="image"
+                  data-testid="edit-input-image"
+                  type="text"
+                  id="img"
+                  value={ image }
+                  onChange={ this.handleChange }
+                />
+              </label>
+            </UserInfo>
+          </ProfileImageContainer>
+        
+          <UseInfoContainer>    
+            <NameAndEmailContainer>
+              <UserInfo>
+                <Title><h2>Nome</h2></Title>
+                <label htmlFor="name">
+              Fique a vontade para usar o nome que você quiser
+                  <input
+                    value={ name }
+                    data-testid="edit-input-name"
+                    type="text"
+                    id="name"
+                    onChange={ this.handleChange }
+                    name="name"
+                  />
+                </label>
+              </UserInfo>
+              <UserInfo>
+                <Title><h2>Email</h2></Title>
+                <label htmlFor="email">
+                  {' '}
+              Escolha seu email mais bonito
+                  <input
+                    value={ email }
+                    data-testid="edit-input-email"
+                    type="text"
+                    id="email"
+                    onChange={ this.handleChange }
+                    name="email"
+                  />
+                </label>
+              </UserInfo>
+            </NameAndEmailContainer>
+            <DescriptionAndButtonContainer>
+              <UserInfo>
+                <Title><h2>Descrição</h2></Title>
+                <label htmlFor="description">
+              Descreva-se da forma como você quiser
+                  <textarea
+                    value={ description }
+                    data-testid="edit-input-description"
+                    id="description"
+                    onChange={ this.handleChange }
+                    name="description"
+                  />
+                </label>
+              </UserInfo>
+              <button
+                data-testid="edit-button-save"
+                type="button"
+                disabled={ disabledButton }
+                onClick={ this.handleClick }
+              >
+            Editar perfil
+              </button>
+            </DescriptionAndButtonContainer>
+          </UseInfoContainer>
+        </UserInfoMainContainer>
       </UserFormMainContainer>
     );
     return (
       <section>
-        <Header />
-        <ProfileWrapper data-testid="page-profile-edit">
-          {formulario}
-          { redirect ? <Navigate to="/profile" /> : '' }
-        </ProfileWrapper>
+        <ProfileWrapperMain data-testid="page-profile-edit">
+          <Header />
+          <ProfileWrapper >
+            {formulario}
+            { redirect ? <Navigate to="/profile" /> : '' }
+          </ProfileWrapper>
+        </ProfileWrapperMain>
       </section>
     );
   }
