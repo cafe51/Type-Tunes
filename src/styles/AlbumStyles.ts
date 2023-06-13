@@ -67,6 +67,7 @@ export const AlbumCardsListWrapper = styled.div`
   }
 
   @media (min-width: 768px) {
+    padding-top: 20px;
     /* width: 50%; */
     /* height: 100%; */
     /* margin: 30%; */

@@ -62,6 +62,7 @@ export const SearchSectionWrapper = styled.div`
   height: 100%;
 
   @media (min-width: 768px) {
+    
     flex-direction: row;
     justify-content: space-around;
   }
