@@ -34,6 +34,7 @@ export const AlbumCardWithTitleWrapper = styled.div`
     /* background-color: blue; */
     width: 100%;
     height: 100%;
+    /* padding-bottom: 50px; */
   /* margin: 30%; */
   /* width: 40%; */
   /* background-color: yellow; */
@@ -46,6 +47,7 @@ export const AlbumCardWithTitle = styled.div`
   align-items: center;
   text-align: center;
   @media (min-width: 768px) {
+    top: 8px;
     position: fixed;
     width: fit-content;
     height: 300px;
