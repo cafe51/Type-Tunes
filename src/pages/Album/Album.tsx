@@ -6,7 +6,7 @@ import Loading from '../../components/Loading';
 import getMusics from '../../services/musicsAPI';
 import { Isong, Iartist } from '../../interfaces';
 import AlbumCard from '../AlbumList/AlbumCard';
-import { AlbumWrapper } from '../../styles/AlbumStyles';
+import { AlbumCardWithTitle, AlbumCardWithTitleWrapper, AlbumCardWrapperMusicList, AlbumWrapper, AlbumWrapperMain } from '../../styles/AlbumStyles';
 
 
 type Props = WithRouterProps<{ id: string }>;
@@ -27,15 +27,19 @@ class Album extends React.Component<Props> {
     });
 
     const albumDetails = (
-      <>
-        <h1 data-testid="artist-name">
-          {array[0].artistName}
-        </h1>
-        <AlbumCard albumData={array[0]} key={array[0].collectionId}/>
+      <AlbumWrapper>
+        <AlbumCardWithTitleWrapper>
+          <AlbumCardWithTitle>
+            <h1 data-testid="artist-name">
+              {array[0].artistName}
+            </h1>
+            <AlbumCardWrapperMusicList key={array[0].collectionId}><AlbumCard albumData={array[0]} /></AlbumCardWrapperMusicList>
+          </AlbumCardWithTitle>
+        </AlbumCardWithTitleWrapper>
         <MusicCard
           listaDeMusicas={ listaDeMusicas }
         />
-      </>
+      </AlbumWrapper>
     );
 
     this.setState({ loading: true },
@@ -50,12 +54,15 @@ class Album extends React.Component<Props> {
   render() {
     const { musicas, loading } = this.state;
     return (
-      <section data-testid="page-album">
+      <AlbumWrapperMain data-testid="page-album">
         <Header />
-        <AlbumWrapper>
-          { loading ? <Loading /> : musicas}
-        </AlbumWrapper>
-      </section>
+        {/* <AlbumWrapper> */}
+        { loading
+          ? <Loading />
+          : musicas
+        }
+        {/* </AlbumWrapper> */}
+      </AlbumWrapperMain>
     );
   }
 }

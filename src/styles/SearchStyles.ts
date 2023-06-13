@@ -27,7 +27,6 @@ export const SearchFormWrapper = styled.div`
     align-items: center;
     width: 40%;
     height: 100%;
-    height: 100%;
     background: linear-gradient(
         90deg,
         #54008B 20.29%,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AlbumCardProps } from '../../types';
-import { AlbumCardWrapper } from '../../styles/AlbumStyles';
+// import { AlbumCardWrapper } from '../../styles/AlbumStyles';
 
 
 export default class AlbumCard extends React.Component<AlbumCardProps> {
@@ -16,7 +16,7 @@ export default class AlbumCard extends React.Component<AlbumCardProps> {
     
 
     return (
-      <AlbumCardWrapper key={key}>
+      <div key={key}>
         <Link
           to={ `/album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
@@ -27,7 +27,7 @@ export default class AlbumCard extends React.Component<AlbumCardProps> {
         </Link>
         <h3 data-testid="album-name">{collectionName}</h3>
         <h4>$ { collectionPrice }</h4>
-      </AlbumCardWrapper>
+      </div>
     );
   }
 }

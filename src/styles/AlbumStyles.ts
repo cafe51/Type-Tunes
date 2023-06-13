@@ -7,6 +7,10 @@ const flexCenterColumn = css`
   text-align: center;
 `;
 
+export const AlbumWrapperMain = styled.section`
+  height: 100%;
+`;
+
 export const AlbumWrapper = styled.div`
   ${flexCenterColumn}
   padding-top: 100px;
@@ -15,8 +19,40 @@ export const AlbumWrapper = styled.div`
   h1 {
     margin-bottom: 30px;
   }
-  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    height: 100%;
+  }
 `;
+
+export const AlbumCardWithTitleWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+    /* background-color: blue; */
+    width: 100%;
+    height: 100%;
+  /* margin: 30%; */
+  /* width: 40%; */
+  /* background-color: yellow; */
+  }
+`;
+
+export const AlbumCardWithTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  @media (min-width: 768px) {
+    position: fixed;
+    width: fit-content;
+    height: 300px;
+  }
+
+`;
+
 
 export const AlbumCardsListWrapper = styled.div`
   ${flexCenterColumn}
@@ -80,3 +116,34 @@ export const AlbumCardWrapper = styled.div`
     padding-right: 10px;
   }
 `;
+
+export const AlbumCardWrapperMusicList = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px #C881F8;
+  margin-bottom: 40px;
+  width: 80%;
+  
+  img {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 2px 10px black;
+    width: 80%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+    /* position: fixed;
+    width: fit-content; */
+    height: 500px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0px;
+  }
+`;
+
