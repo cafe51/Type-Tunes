@@ -18,12 +18,14 @@ export const GlobalStyle = createGlobalStyle`
 
   *::-webkit-scrollbar-track {
     background-color: #C881F8;
+    /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25); */
   }
 
   *::-webkit-scrollbar-thumb {
   background-color: #410B67;
   border-radius: 20px;
   border: 3px solid transparent;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
   }
 
   h1 {
