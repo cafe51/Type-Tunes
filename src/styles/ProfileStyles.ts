@@ -15,9 +15,6 @@ export const ProfileWrapper = styled.div`
   height: fit-content;
   background-image: url(${backgroundProfile});
   background-repeat: no-repeat;
-  /* background-size: 230%; */
-  /* background-position-y: 80px; */
-  /* background-position-x: -150px; */
   background-size: 330%;
   background-position-y: 80px;
   background-position-x: -350px;
