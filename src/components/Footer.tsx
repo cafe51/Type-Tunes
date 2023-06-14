@@ -12,13 +12,13 @@ class Footer extends React.Component {
           Desenvolvido por Japhé Nogueira
         </p>
         <SocialMediaContainer>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/cafe51/Type-Tunes/" target="_blank" rel="noopener noreferrer">
             <FaGithub size={16} />
           </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/japh%C3%A9-nogueira-67aa7b1a8//" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={16} />
           </a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.japhe.com/" target="_blank" rel="noopener noreferrer">
             <TbHexagonLetterJ size={20} />
           </a>
         </SocialMediaContainer>

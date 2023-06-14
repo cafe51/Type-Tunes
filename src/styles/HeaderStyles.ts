@@ -56,6 +56,7 @@ export const NavLink = styled(Link)`
       background-color: #56008D;
     }
   }
+
   @media (min-width: 768px) {
     &:hover {
       font-size: large;
