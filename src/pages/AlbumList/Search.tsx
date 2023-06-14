@@ -8,7 +8,7 @@ import { SearchState } from '../../types';
 import { SearchWrapper, SearchWrapperMain } from '../../styles/SearchStyles';
 
 class Search extends React.Component {
-  state: any = {
+  state: SearchState = {
     isFormDisabled: true,
     artistNameInput: '',
     searchedArtist: '',

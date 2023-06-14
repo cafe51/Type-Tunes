@@ -28,6 +28,7 @@ export type SearchState = {
   displayedResult: [] | Iartist[];
   albumsToShow: number;
   notice: string,
+  isLoadingMore: boolean;
 }
 
 export type ProfileEditState = {
