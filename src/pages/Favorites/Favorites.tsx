@@ -4,16 +4,8 @@ import Loading from '../../components/Loading';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import Header from '../../components/Header';
 import { Isong } from '../../interfaces';
-import styled from 'styled-components';
+import { FavoriteMainWrapper, FavoritesWrapper, Title } from '../../styles/FavoritesStyles';
 
-export const FavoriteMainWrapper = styled.div`
-
-`;
-
-export const FavoritesWrapper = styled.div`
-  padding-top: 100px;
-  width: 99%;
-`;
 
 
 class Favorites extends React.Component {
@@ -37,17 +29,19 @@ class Favorites extends React.Component {
 
     return (
       <div data-testid="page-favorites">
-        <Header />
-        <FavoritesWrapper>
-          Favorites
-          { loading
-            ? <Loading />
-            : <MusicCard
-              listaDeMusicas={ favorites }
-              changeFavorites = { this.changeFavorites }
-            />
-          }
-        </FavoritesWrapper>
+        <FavoriteMainWrapper>
+          <Header />
+          <FavoritesWrapper>
+            <Title><h1>Favorites</h1></Title>
+            { loading
+              ? <Loading />
+              : <MusicCard
+                listaDeMusicas={ favorites }
+                changeFavorites = { this.changeFavorites }
+              />
+            }
+          </FavoritesWrapper>
+        </FavoriteMainWrapper>
       </div>
     );
   }

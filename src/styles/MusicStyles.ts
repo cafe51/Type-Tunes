@@ -29,13 +29,13 @@ export const ButtonAndCheckFavorite = styled.div`
   @media (min-width: 768px) {
     width: 30%;
     align-self: center;
-    /* background-color: yellow; */
   }
 `;
 
 export const ListWrapper = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 export const CardWrapper = styled.div`
