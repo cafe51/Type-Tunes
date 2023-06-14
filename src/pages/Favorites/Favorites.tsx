@@ -4,7 +4,7 @@ import Loading from '../../components/Loading';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import Header from '../../components/Header';
 import { Isong } from '../../interfaces';
-import { FavoriteMainWrapper, FavoritesWrapper, Title } from '../../styles/FavoritesStyles';
+import { BackgroundImageFavorites, FavoriteMainWrapper, FavoritesWrapper, Title } from '../../styles/FavoritesStyles';
 
 
 
@@ -28,21 +28,20 @@ class Favorites extends React.Component {
     const { favorites, loading } = this.state;
 
     return (
-      <div data-testid="page-favorites">
-        <FavoriteMainWrapper>
-          <Header />
-          <FavoritesWrapper>
-            <Title><h1>Favorites</h1></Title>
-            { loading
-              ? <Loading />
-              : <MusicCard
-                listaDeMusicas={ favorites }
-                changeFavorites = { this.changeFavorites }
-              />
-            }
-          </FavoritesWrapper>
-        </FavoriteMainWrapper>
-      </div>
+      <FavoriteMainWrapper id='favoritMain' data-testid="page-favorites">
+        <Header />
+        <FavoritesWrapper>
+          <Title><h1>Favorites</h1></Title>
+          <BackgroundImageFavorites />
+          { loading
+            ? <Loading />
+            : <MusicCard
+              listaDeMusicas={ favorites }
+              changeFavorites = { this.changeFavorites }
+            />
+          }
+        </FavoritesWrapper>
+      </FavoriteMainWrapper>
     );
   }
 }
