@@ -37,10 +37,7 @@ export const ProfileWrapper = styled.div`
     padding: 0px;
     flex-direction: row;
     background-image: url(${LoginBackgroundDeskTop});
-    /* background-position-y: -10px; */
-    /* background-position-x: 20px; */
     background-repeat: no-repeat;
-    /* background-size: 110%; */
     background-size: cover;
 
   }
@@ -48,11 +45,8 @@ export const ProfileWrapper = styled.div`
 
 export const UserFormMainContainer = styled.form`
   ${flexCenterColumn}
-  /* border: 1px solid white; */
-  /* flex: 1 0 auto; */
   padding-bottom: 200px;
   text-align: center;
-  /* margin-bottom: -100px; */
   width: 90%;
 
   h2 {
@@ -89,8 +83,7 @@ export const UserFormMainContainer = styled.form`
       ${flexCenterColumn}
       justify-content: center;
       height: 100%;
-      /* gap: 16px; */
-      /* width: 80%; */
+
     }
 
 
@@ -98,17 +91,9 @@ export const UserFormMainContainer = styled.form`
 `;
 
 export const BackGroundImageLogin = styled.div`
-  /* background-image: url(${backgroundImage}); */
-  /* background-position-y: 60px; */
-  /* background-position-x: -20px; */
-  /* background-repeat: no-repeat; */
-  /* background-size: 100%; */
-  /* background-color: blue; */
   height: 100%;
   width: 70%;
 
   @media (max-width: 768px) {
-    /* flex-direction: row; */
-    /* background-image: none; */
   }
 `;

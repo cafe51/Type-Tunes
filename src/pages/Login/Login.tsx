@@ -26,7 +26,8 @@ class Login extends React.Component {
     });
   };
 
-  handleClick = () => {
+  handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     const name = { name: this.state.name };
     this.setState({ isLoading: true },
       async () => {
@@ -42,8 +43,7 @@ class Login extends React.Component {
         <LoginHeader/>
         <ProfileWrapper data-testid="page-login">
           <BackGroundImageLogin />
-          <UserFormMainContainer>
-
+          <UserFormMainContainer onSubmit={this.handleSubmit}>
             <label htmlFor="nome">
               <input
                 data-testid="login-name-input"
@@ -56,16 +56,14 @@ class Login extends React.Component {
               />
               <button
                 data-testid="login-submit-button"
-                type="button"
+                type="submit"
                 disabled={ disabled }
-                onClick={ this.handleClick }
               >
                 Entrar
               </button>
               {isLoading ? <Loading /> : ''}
               {redirect ? <Navigate to="/search" /> : ''}
             </label>
-
           </UserFormMainContainer>
         </ProfileWrapper>
       </LoginWrapper>
