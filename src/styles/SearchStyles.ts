@@ -21,8 +21,8 @@ export const SearchFormWrapper = styled.div`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 40%;
+    align-items: start;
+    width: 70%;
     height: 100%;
     background: linear-gradient(
       90deg,
@@ -41,8 +41,12 @@ export const Form = styled.form`
   margin: auto;
 
   @media (min-width: 768px) {
+    align-items: start;
+    padding: 20px;
+    padding-left: 40px;
+    /* background-color: blue; */
     position: fixed;
-    width: fit-content;
+    width: 50%;
     justify-content: center;
     height: 450px;
     
