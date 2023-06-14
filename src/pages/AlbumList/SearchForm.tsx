@@ -4,10 +4,15 @@ import { Form, InputWrapper } from '../../styles/SearchStyles';
 
 
 export default class SearchForm extends React.Component<SearchFormProps> {
+  handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    this.props.handleClick();
+  };
+
   render() {
-    const { artistNameInput, handleChange, handleClick, disabled }  = this.props;
+    const { artistNameInput, handleChange, disabled }  = this.props;
     return (
-      <Form>
+      <Form onSubmit={this.handleSubmit}>
         <InputWrapper>
           <label htmlFor="searchField">
             <input
@@ -23,9 +28,8 @@ export default class SearchForm extends React.Component<SearchFormProps> {
         </InputWrapper>
         <button
           data-testid="search-artist-button"
-          type="button"
+          type="submit"
           disabled={ disabled }
-          onClick={ handleClick }
         >
           Procurar
         </button>
