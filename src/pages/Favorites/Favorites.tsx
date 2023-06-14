@@ -4,7 +4,7 @@ import Loading from '../../components/Loading';
 import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
 import Header from '../../components/Header';
 import { Isong } from '../../interfaces';
-import { BackgroundImageFavorites, FavoriteMainWrapper, FavoritesWrapper, Title } from '../../styles/FavoritesStyles';
+import { BackgroundImageFavorites, FavoriteMainWrapper, FavoritesWrapper, Title, TitleAndBackground, TitleAndBackgroundWrapper } from '../../styles/FavoritesStyles';
 
 
 
@@ -31,8 +31,12 @@ class Favorites extends React.Component {
       <FavoriteMainWrapper id='favoritMain' data-testid="page-favorites">
         <Header />
         <FavoritesWrapper>
-          <Title><h1>Favorites</h1></Title>
-          <BackgroundImageFavorites />
+          <TitleAndBackgroundWrapper>
+            <TitleAndBackground>
+              <Title><h1>Favorites</h1></Title>
+              <BackgroundImageFavorites />
+            </TitleAndBackground>
+          </TitleAndBackgroundWrapper>
           { loading
             ? <Loading />
             : <MusicCard
