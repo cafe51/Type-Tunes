@@ -49,7 +49,18 @@ export const UserName = styled(Link)`
 export const NavLink = styled(Link)`
   display: block;
   padding: 10px;
-  text-align: center
+  text-align: center;
+
+  @media (max-width: 768px) {
+    &:hover {
+      background-color: #56008D;
+    }
+  }
+  @media (min-width: 768px) {
+    &:hover {
+      font-size: large;
+    }
+  }
 `;
 
 const baseHamburgerStyle = css`
