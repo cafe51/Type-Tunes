@@ -52,5 +52,6 @@ export type SearchSectionProps = {
   handleInputChange: (event: InsertEventInterface) => void;
   fetchArtistAlbums: () => void
   displayedResult: [] | Iartist[];
-  searchedArtist: Iartist | string
+  searchedArtist: Iartist | string;
+  isLoadingMore: boolean;
 }

@@ -8,7 +8,7 @@ import Loading from '../../components/Loading';
 
 
 
-class SearchSection extends React.Component<any> {
+class SearchSection extends React.Component<SearchSectionProps> {
   render() {
     const { artistNameInput, isFormDisabled, handleInputChange, fetchArtistAlbums, displayedResult, searchedArtist, isLoadingMore } = this.props;
   

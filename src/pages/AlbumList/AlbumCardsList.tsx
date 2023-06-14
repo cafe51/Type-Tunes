@@ -3,7 +3,7 @@ import AlbumCard from './AlbumCard';
 import { AlbumCardsListProps } from '../../types';
 import { IAlbumData } from '../../interfaces';
 import { AlbumCardWrapper, AlbumCardsListWrapper, SearchResultsWrapper } from '../../styles/AlbumStyles';
-import { BackGroundImage, BackGroundImageOnlyMobile } from '../../styles/SearchStyles';
+import { BackGroundImageOnlyMobile } from '../../styles/SearchStyles';
 
 
 export default class AlbumCardsList extends React.Component<AlbumCardsListProps> {
