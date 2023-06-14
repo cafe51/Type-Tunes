@@ -75,6 +75,13 @@ export const AlbumCardsListWrapper = styled.div`
     /* margin: 30%; */
     /* width: 40%; */
     /* background-color: yellow; */
+    background: linear-gradient(
+      90deg,
+      rgba(84, 0, 139, 0.9) 20.29%,
+      rgba(127, 17, 176, 0.9) 50.42%,
+      rgba(37, 22, 46, 0.9) 95.83%
+    );
+
   }
 `;
 
@@ -112,9 +119,12 @@ export const AlbumCardWrapper = styled.div`
   }
 
   @media (min-width: 768px) {
+    /* background-color: blue; */
     justify-content: space-between;
     width: 30%;
-    height: 300px;
+    min-height: 400px;
+    /* max-height: ; */
+    /* height: 340px; */
     padding-left: 10px;
     padding-right: 10px;
   }

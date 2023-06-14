@@ -24,7 +24,7 @@ export default class AlbumCardsList extends React.Component<AlbumCardsListProps>
               <BackGroundImageOnlyMobile />
             </SearchResultsWrapper>
           )
-          : <BackGroundImage /> }
+          : '' }
       </AlbumCardsListWrapper>
     );
   }

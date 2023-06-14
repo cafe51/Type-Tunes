@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import backgroundSerchScreen from '../images/searchBackground.png';
+import backgroundSearchScreeDesktop from '../images/SearchBackgroundDesktop.png';
 
 export const SearchWrapperMain = styled.section`
   height: 100%;
@@ -24,11 +25,11 @@ export const SearchFormWrapper = styled.div`
     width: 40%;
     height: 100%;
     background: linear-gradient(
-        90deg,
-        #54008B 20.29%,
-        #7F11B0 50.42%,
-        #25162E 95.83%
-        );
+      90deg,
+      rgba(37, 22, 46, 0.9) 20.29%,
+      rgba(127, 17, 176, 0.9) 50.42%,
+      rgba(84, 0, 139, 0.9) 95.83%
+    );
   }
 `;
 
@@ -62,7 +63,8 @@ export const SearchSectionWrapper = styled.div`
   height: 100%;
 
   @media (min-width: 768px) {
-    
+    background-image: url(${backgroundSearchScreeDesktop});
+    background-size: cover;
     flex-direction: row;
     justify-content: space-around;
   }
@@ -95,5 +97,6 @@ export const BackGroundImageOnlyMobile = styled.div`
 
   @media (min-width: 768px) {
     width: 90%;
+    display: none;
   }
 `;

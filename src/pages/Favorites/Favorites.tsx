@@ -6,7 +6,11 @@ import Header from '../../components/Header';
 import { Isong } from '../../interfaces';
 import styled from 'styled-components';
 
-const FavoritesWrapper = styled.div`
+export const FavoriteMainWrapper = styled.div`
+
+`;
+
+export const FavoritesWrapper = styled.div`
   padding-top: 100px;
   width: 99%;
 `;
