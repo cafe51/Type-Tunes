@@ -19,7 +19,6 @@ const flexCenterColumn = css`
 
 export const ProfileWrapper = styled.div`
   ${flexCenterColumn}
-  /* margin-top: 20px; */
   padding: 100px 0;
   width: 100%;
   height: 100%;
@@ -38,7 +37,6 @@ export const ProfileWrapper = styled.div`
     background-image: url(${LoginBackgroundDeskTop});
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: yellow;
 
 
   }

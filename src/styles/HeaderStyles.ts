@@ -50,16 +50,18 @@ export const NavLink = styled(Link)`
   display: block;
   padding: 10px;
   text-align: center;
+  border-radius: 10px;
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) {
     &:hover {
-      background-color: #56008D;
+      background-color: #C881F8;
+      color: #56008D;
     }
   }
 
   @media (min-width: 768px) {
     &:hover {
-      font-size: large;
+      /* font-size: large; */
     }
   }
 `;
