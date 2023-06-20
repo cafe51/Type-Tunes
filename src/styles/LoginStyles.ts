@@ -24,7 +24,6 @@ export const ProfileWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: auto;
-  /* border: 1px solid white; */
 
   background-image: url(${backgroundImage});
   background-position-y: 60px;
@@ -39,6 +38,8 @@ export const ProfileWrapper = styled.div`
     background-image: url(${LoginBackgroundDeskTop});
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: yellow;
+
 
   }
 `;
@@ -78,6 +79,7 @@ export const UserFormMainContainer = styled.form`
     margin-top: 0px;
     padding: 0px;
     width: 60%;
+    align-items: start;
 
     label {
       ${flexCenterColumn}

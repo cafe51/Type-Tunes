@@ -18,7 +18,7 @@ class Footer extends React.Component {
           <a href="https://www.linkedin.com/in/japh%C3%A9-nogueira-67aa7b1a8//" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={16} />
           </a>
-          <a href="https://www.japhe.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://japhe.vercel.app/" target="_blank" rel="noopener noreferrer">
             <TbHexagonLetterJ size={20} />
           </a>
         </SocialMediaContainer>
@@ -27,3 +27,4 @@ class Footer extends React.Component {
   }
 }
 export default Footer;
+
