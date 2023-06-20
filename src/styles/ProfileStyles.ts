@@ -327,7 +327,7 @@ export const UserInfoImageWithInput = styled.div`
 
     }
     &::placeholder {
-      font-size: 16px;
+      font-size: 12px;
       color: #82488D;
     }
   }

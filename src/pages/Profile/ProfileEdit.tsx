@@ -97,6 +97,7 @@ class ProfileEdit extends React.Component {
                         name="image"
                         data-testid="edit-input-image"
                         type="text"
+                        placeholder='https://link-para-imagem.jpg/'
                         id="img"
                         value={ image }
                         onChange={ this.handleChange }
