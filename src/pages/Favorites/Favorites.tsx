@@ -33,7 +33,7 @@ class Favorites extends React.Component {
         <FavoritesWrapper>
           <TitleAndBackgroundWrapper>
             <TitleAndBackground>
-              <Title><h1>Favorites</h1></Title>
+              <Title><h1>Favoritas</h1></Title>
               <BackgroundImageFavorites />
             </TitleAndBackground>
           </TitleAndBackgroundWrapper>

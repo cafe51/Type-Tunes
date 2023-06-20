@@ -87,7 +87,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
           </HamburgerMobile>
           <NavLinksDesktop>
             <NavLink data-testid="link-to-search" to="/search">
-            Search
+            Pesquisar
             </NavLink>
             <NavLink data-testid="link-to-favorites" to="/favorites">
             Favoritas
@@ -99,7 +99,7 @@ class Header extends React.Component<Record<string, never>, HeaderState> {
         </HeaderSection>
         <NavMenuMobile open={isMenuOpen} ref={this.menuRef}>
           <NavLink to="/search">
-            Search
+            Pesquisar
           </NavLink>
           <NavLink to="/favorites">
           Favoritas
