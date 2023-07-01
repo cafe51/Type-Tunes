@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import backgroundSerchScreen from '../images/searchBackground.png';
-import backgroundSearchScreeDesktop from '../images/SearchBackgroundDesktop.png';
+import backgroundSerchScreen from '../images/searchBackground.jpg';
+import backgroundSearchScreeDesktop from '../images/SearchBackgroundDesktop.jpg';
 
 export const SearchWrapperMain = styled.section`
   height: 100%;

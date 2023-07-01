@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import backgroundProfile from '../images/violino.png';
+import backgroundProfile from '../images/violino.jpg';
 
 export const ProfileWrapperMain = styled.section`
   height: 100%;

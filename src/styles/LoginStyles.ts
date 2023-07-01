@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import LoginBackgroundDeskTop from '../images/LoginBackgroundDeskTop.png';
-import backgroundImage from '../images/background-login.png';
+import LoginBackgroundDeskTop from '../images/LoginBackgroundDeskTop.jpg';
+import backgroundImage from '../images/background-login.jpg';
 
 export const LoginWrapper = styled.div`
   display: flex;

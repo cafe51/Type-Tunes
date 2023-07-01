@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundFavorites from '../images/background-favorites.png';
+import backgroundFavorites from '../images/background-favorites.jpg';
 
 export const FavoriteMainWrapper = styled.div`
   height: 100%;
